@@ -19,7 +19,7 @@ with sync_playwright() as p:
     expect(page.get_by_role('heading',name='AI의 초안에 사람의 판단을 더합니다.')).to_be_visible()
     page.get_by_text('만드는 과정 보기',exact=True).click()
     expect(page.get_by_role('heading',name='확인하고 수정',exact=True)).to_be_visible()
-    assert page.locator('a[href="https://byeolieum.com"]').count()==1
+    assert page.locator('a[href="https://byeolieum.com"]').count()==0
     page.get_by_text('만드는 과정 보기',exact=True).click()
     page.evaluate('window.scrollTo(0, 0)')
     page.screenshot(path=str(OUT/f'home-{width}.png'),full_page=True)

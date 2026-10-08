@@ -23,8 +23,6 @@ print(mix(flour, sugar))
 # 결과: 총 130g입니다.`}</code></pre>
         <p>설탕의 양을 50으로 바꾸면 결과는 어떻게 될까요? 먼저 예상하고, 실행해서 150g이 나오는지 확인해 보세요.</p>
         <p className={styles.caption}>실행 가능한 Python 예시입니다. 실제 조리법이나 재료를 섞는 프로그램이 아니라, 두 수를 더해 문장을 만드는 코드입니다.</p>
-        <h4>다시 다듬은 점</h4>
-        <p>기존 자료의 핵심에 맞춰 ‘객체지향’ 대신 변수와 함수를 설명합니다. 비유와 실제 코드도 구분했습니다.</p>
       </details>
     </article>
     <article className={styles.card}>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HumanLoop } from "@/components/TechTranslation";
-import { ProjectCards } from "@/components/ProjectCards";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 import styles from "./page.module.css";
@@ -32,12 +31,11 @@ export default function HomePage() {
         </figure>
       </div>
     </section>
-    <section className={`section ${styles.band}`} aria-labelledby="projects-title">
+    <section className={`section ${styles.band}`} aria-labelledby="purpose-title">
       <div className="shell"><Reveal>
-        <p className="section__eyebrow">생활 속에서 시작한 두 개의 도구</p>
-        <h2 id="projects-title" className="section__title section__title--lines">생각을 잇고,<br />잠깐 멈추는 자리.</h2>
-        <p className="section__lead">바로 정리하지 않아도 남겨둘 수 있도록. 바로 결정하지 않아도 돌아볼 수 있도록. 제가 필요했던 자리를 작은 웹앱으로 만들어봅니다.</p>
-        <ProjectCards compact />
+        <p className="section__eyebrow">만드는 일에 담고 싶은 마음</p>
+        <h2 id="purpose-title" className="section__title section__title--lines">생각을 잇고,<br />잠깐 멈추는 자리.</h2>
+        <p className="section__lead">정리되지 않은 생각도 남겨둘 수 있고, 결정을 잠시 미뤄도 괜찮은 자리. 기술이 삶을 재촉하기보다, 나의 속도로 생각하고 선택하는 데 도움이 되면 좋겠습니다.</p>
       </Reveal></div>
     </section>
     <section className="section" aria-label="AI와 함께 만드는 태도">
