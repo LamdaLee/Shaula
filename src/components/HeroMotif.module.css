@@ -152,20 +152,21 @@
 
 @media (max-width: 720px) {
   .constellation {
-    opacity: 0.45;
-    width: 70vw;
-    top: -2%;
+    opacity: 0.4;
+    width: 68vw;
+    top: -4%;
+    right: -8%;
   }
 
   .memo {
-    width: 8.5rem;
-    bottom: 6%;
-    opacity: 0.85;
+    /* Keep clear of hero CTAs on narrow screens */
+    display: none;
   }
 
   .wash {
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
+    inset: -8% -18% auto auto;
   }
 }
 
