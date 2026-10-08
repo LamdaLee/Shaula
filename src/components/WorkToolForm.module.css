@@ -75,8 +75,8 @@
 
 .legend {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
-  font-weight: 400;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  font-weight: 600;
   letter-spacing: -0.02em;
   padding: 0;
   margin-bottom: 0.35rem;
@@ -162,8 +162,9 @@
 .cardTitle {
   margin: 0 0 0.85rem;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 1.7rem);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 .cardBody {

@@ -1,29 +1,15 @@
 import type { Metadata } from "next";
-import { Gaegu, IBM_Plex_Sans_KR, Jua } from "next/font/google";
+import { IBM_Plex_Sans_KR } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-/** Soft rounded Korean display — warmer than Black Han Sans. */
-const display = Jua({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-display-face",
-  display: "swap",
-});
-
-const body = IBM_Plex_Sans_KR({
+/** Professional Korean sans — weight hierarchy instead of playful display faces. */
+const sans = IBM_Plex_Sans_KR({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-body-face",
-  display: "swap",
-});
-
-const hand = Gaegu({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-hand-face",
+  variable: "--font-sans-face",
   display: "swap",
 });
 
@@ -47,10 +33,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="ko"
-      className={`${display.variable} ${body.variable} ${hand.variable}`}
-    >
+    <html lang="ko" className={sans.variable}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+      </head>
       <body>
         <a className="skip-link" href="#main">
           본문으로 건너뛰기

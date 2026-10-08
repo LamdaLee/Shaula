@@ -7,8 +7,8 @@
 .sticky {
   position: sticky;
   /* Sit below the persistent header so scroll craft never covers it */
-  top: 4rem;
-  height: calc(100vh - 4rem);
+  top: var(--header-h);
+  height: calc(100dvh - var(--header-h));
   z-index: 1;
   display: grid;
   place-content: center;
@@ -29,9 +29,10 @@
 .line {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 6.2vw, 3.75rem);
-  line-height: 1.28;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.55rem, 4.8vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -0.03em;
   color: var(--ink);
   max-width: 16ch;
   margin-inline: auto;
