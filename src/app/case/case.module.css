@@ -1,49 +1,73 @@
-.header {
-  padding: clamp(2rem, 5vw, 3.25rem) 0 1.5rem;
-}
-
 .badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-bottom: 0.85rem;
-}
-
-.title {
-  font-size: clamp(1.85rem, 4vw, 2.6rem);
-  margin: 0 0 0.75rem;
+  margin-bottom: 0.95rem;
 }
 
 .titleKo {
-  font-size: 0.7em;
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.42em;
   font-weight: 600;
-  color: var(--ink-soft);
+  letter-spacing: 0;
+  color: var(--ink-muted);
 }
 
-.lead {
-  max-width: 40rem;
-  color: var(--ink-soft);
-  margin-bottom: 1.25rem;
+.punch {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 0.85rem;
+  color: var(--sky-ink);
 }
 
 .block {
-  padding: 1.75rem 0;
+  padding: 2rem 0;
   border-top: 1px dashed var(--line);
 }
 
-.block h2 {
-  margin: 0 0 0.85rem;
-  font-size: 1.35rem;
+.h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
 }
 
-.facts {
-  margin: 0;
-  padding-left: 1.2rem;
+.step {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--sky-ink);
+  min-width: 2rem;
+}
+
+.body {
   color: var(--ink-soft);
+  max-width: 40rem;
+  font-weight: 500;
 }
 
-.facts li + li {
-  margin-top: 0.45rem;
+.defs {
+  margin: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.defs dt {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--sky-ink);
+  margin: 0 0 0.2rem;
+}
+
+.defs dd {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 500;
+  max-width: 40rem;
 }
 
 .note {
@@ -65,7 +89,7 @@
 .table td {
   text-align: left;
   vertical-align: top;
-  padding: 0.65rem 0.75rem;
+  padding: 0.75rem 0.8rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -86,6 +110,12 @@
   border: 1.5px solid var(--line);
   border-radius: 4px;
   padding: 0.65rem;
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease);
+}
+
+.shot:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -20px color-mix(in srgb, var(--ink) 45%, transparent);
 }
 
 .shotImg {
@@ -102,8 +132,93 @@
   font-size: 0.95rem;
 }
 
+.flow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 36rem;
+}
+
+.flow li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.flow li::before {
+  counter-increment: none;
+  content: "→";
+  font-family: var(--font-hand);
+  color: var(--sky-ink);
+  font-size: 1.2rem;
+}
+
+.split {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.splitCard {
+  background: color-mix(in srgb, white 70%, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem;
+}
+
+.splitCard h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.25rem;
+}
+
+.splitCard p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.bullets li + li {
+  margin-top: 0.5rem;
+}
+
+.questions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.questions li {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
 .footerCta {
-  padding: 1.5rem 0 3rem;
+  padding: 1.75rem 0 3.25rem;
 }
 
 .inlineCode {

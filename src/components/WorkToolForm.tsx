@@ -175,6 +175,7 @@ export function WorkToolForm() {
         }}
         noValidate
       >
+        <div key={step} className={styles.stepPane}>
         {step === 1 && (
           <fieldset className={styles.fieldset}>
             <legend className={styles.legend}>1. 어디에서 막히나요?</legend>
@@ -319,6 +320,8 @@ export function WorkToolForm() {
             />
           </fieldset>
         )}
+
+        </div>
 
         {error ? (
           <p className={styles.error} role="alert">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Reveal } from "@/components/Reveal";
 import { WorkToolForm } from "@/components/WorkToolForm";
 import styles from "./try.module.css";
 
@@ -11,25 +12,39 @@ export const metadata: Metadata = {
 export default function TryPage() {
   return (
     <div className="shell">
-      <header className={styles.header}>
-        <p className="section__eyebrow">AI 직접 써보기</p>
-        <h1 className={styles.title}>내 업무의 AI 활용 지점 찾기</h1>
-        <p className={styles.lead}>
-          막연한 “AI 쓰고 싶다”를, 입력·출력·검증·다음 행동이 있는 작은
-          실험으로 바꿉니다.
-        </p>
-        <aside className={`memo ${styles.memo}`} aria-label="학습 관점">
-          <p style={{ margin: 0 }}>
-            <strong>학습 관점:</strong> 필요 발견 → 입력 정리 → 결과 생성 →
-            검증 → 수정 → 다음 업무에 활용.
+      <header className="page-header">
+        <Reveal tone="scale">
+          <p className="section__eyebrow">AI 직접 써보기</p>
+          <h1 className="page-title">
+            내 업무의
             <br />
-            <strong>AX:</strong> AI로 일의 흐름을 한 번 바꿔 보는 경험.
+            AI 활용 지점
+          </h1>
+          <p className={styles.punch}>
+            “AI 쓰고 싶다”를
+            <br />
+            작은 실험으로.
           </p>
-        </aside>
-        <p className={styles.disclaimer} role="note">
-          이 페이지는 AI가 당신의 직무를 평가하지 않습니다. 당신이 적은 답을
-          정리한 ‘실험 카드’만 만듭니다. (AI API·직무 적성 판정 없음)
-        </p>
+          <p className="page-lead">
+            입력·출력·검증·다음 행동까지 적어 실험 카드로 만듭니다.
+          </p>
+          <aside className={`memo ${styles.memo}`} aria-label="학습 관점">
+            <p className={styles.memoLine}>
+              <strong>학습 관점</strong>
+              <span>
+                필요 → 입력 → 생성 → 검증 → 수정 → 활용
+              </span>
+            </p>
+            <p className={styles.memoLine}>
+              <strong>AX</strong>
+              <span>AI로 일의 흐름을 한 번 바꿔 보는 경험</span>
+            </p>
+          </aside>
+          <p className={styles.disclaimer} role="note">
+            AI가 직무를 평가하지 않습니다. 당신이 적은 답을 정리한 ‘실험
+            카드’만 만듭니다. (AI API·직무 적성 판정 없음)
+          </p>
+        </Reveal>
       </header>
 
       <noscript>
@@ -53,18 +68,20 @@ AI에는 ______을 맡기고, 나는 ______을 확인한다.
         </div>
       </noscript>
 
-      <WorkToolForm />
+      <Reveal>
+        <WorkToolForm />
+      </Reveal>
 
-      <section className={styles.principles} aria-labelledby="principles">
-        <h2 id="principles">함께 기억할 원칙</h2>
-        <ul>
+      <Reveal as="section" className={styles.principles}>
+        <h2 className={styles.principlesTitle}>함께 기억할 원칙</h2>
+        <ul className={styles.principleList}>
           <li>AI에 맡길 일과 사람이 판단할 일을 구분한다</li>
           <li>좋은 프롬프트여도 검증이 필요하다</li>
           <li>계산·규칙 검사는 일반 프로그램으로도 가능하다</li>
           <li>생성과 발송·공개·실행을 구분한다</li>
           <li>근거 없는 시간 절감·성과 수치는 쓰지 않는다</li>
         </ul>
-      </section>
+      </Reveal>
     </div>
   );
 }

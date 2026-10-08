@@ -48,7 +48,7 @@ npm start
 
 ## Pause & Ponder 링크
 
-- 데모: https://pauseponder.vercel.app
+- 데모: https://getpauseponder.com
 - 소스: https://github.com/LamdaLee/PP
 
 화면 캡처는 `public/images/pp/` (계정 이메일 영역 제외·가공). 사이트 본문 연락은 `lamda@shaula.kr`만 사용합니다.

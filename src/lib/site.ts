@@ -5,13 +5,18 @@ export const site = {
   email: "lamda@shaula.kr",
   domain: "shaula.kr",
   url: "https://shaula.kr",
-  tagline: "어려운 AI를, 일상과 업무에서 쓸 수 있는 언어로.",
+  /** Role line — keep honest, sharpen delivery */
+  role: "어려운 것을 쉽게 전달해 주는 사람",
+  tagline: "어려운 AI를, 쓸 수 있는 말로.",
+  taglineSupport:
+    "교육운영과 웹앱 제작으로, 사람들이 AI를 이해하고 쓰도록 돕습니다.",
   footer: "Shaula — 이람다의 AI 리터러시 포트폴리오",
   pausePonder: {
     name: "Pause&Ponder",
     nameKo: "포즈앤폰더",
-    demo: "https://pauseponder.vercel.app",
+    demo: "https://getpauseponder.com",
     github: "https://github.com/LamdaLee/PP",
+    punch: "적고. 멈추고. 되돌아보기.",
     summary:
       "생각함에서 시작하는 감정과 돈의 기록 — 충동구매를 잠시 멈추고(Pause), 감정과 소비의 연결을 되돌아보는(Ponder) 개인 보조 도구.",
   },

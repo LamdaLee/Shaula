@@ -1,21 +1,21 @@
 :root {
-  /* Bright paper + ink — cool undertone (not cream/terracotta bias) */
-  --paper: #f4f7fb;
-  --paper-deep: #e8eef6;
-  --ink: #1a2233;
-  --ink-soft: #3d4759;
-  --ink-muted: #5c677a;
-  --line: #c5d0e0;
-  --memo: #fff8d6;
-  --memo-edge: #e8d98a;
-  --mint: #dff3ea;
-  --mint-ink: #1f6b4f;
-  --sky: #d6e8ff;
-  --sky-ink: #245a9a;
-  --star: #2a6fd6;
-  --focus: #1f5fbf;
+  /* Bright paper + ink — cool undertone; warm memo accents (not cream/terracotta hero) */
+  --paper: #f3f6fb;
+  --paper-deep: #e6edf6;
+  --ink: #121820;
+  --ink-soft: #2f3948;
+  --ink-muted: #5a6578;
+  --line: #c3cede;
+  --memo: #fff4c8;
+  --memo-edge: #e4d07a;
+  --mint: #dcf3e8;
+  --mint-ink: #1a5f47;
+  --sky: #d4e6ff;
+  --sky-ink: #1e5494;
+  --star: #2563c7;
+  --focus: #1a56b0;
   --danger: #9b2c2c;
-  --ok: #1f6b4f;
+  --ok: #1a5f47;
 
   --bg: var(--paper);
   --fg: var(--ink);
@@ -23,23 +23,25 @@
   --accent: var(--sky-ink);
   --accent-soft: var(--sky);
 
-  --font-display: var(--font-gaegu), "Gaegu", "Nanum Pen Script", cursive;
-  --font-body: var(--font-noto), "Noto Sans KR", sans-serif;
+  --font-display: var(--font-display-face), "Black Han Sans", "Noto Sans KR", sans-serif;
+  --font-body: var(--font-body-face), "IBM Plex Sans KR", "Noto Sans KR", sans-serif;
+  --font-hand: var(--font-hand-face), "Gaegu", "Nanum Pen Script", cursive;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
   --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4.5rem;
+  --space-6: 2.25rem;
+  --space-7: 3.5rem;
+  --space-8: 5.5rem;
 
-  --measure: 40rem;
-  --shell: 68rem;
-  --radius: 0.25rem;
+  --measure: 38rem;
+  --shell: 70rem;
+  --radius: 0.2rem;
   --touch: 2.75rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *,
@@ -71,14 +73,16 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   line-height: 1.7;
+  font-weight: 400;
   color: var(--fg);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Soft paper grain + cool wash */
+/* Soft paper grain + cool wash + warm memo glow */
 body::before {
   content: "";
   position: fixed;
@@ -86,9 +90,10 @@ body::before {
   pointer-events: none;
   z-index: -2;
   background:
-    radial-gradient(ellipse 70% 45% at 90% -5%, color-mix(in srgb, var(--sky) 55%, transparent), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 0% 30%, color-mix(in srgb, var(--mint) 45%, transparent), transparent 55%),
-    linear-gradient(180deg, #f7fafd 0%, var(--paper) 40%, #eef3f9 100%);
+    radial-gradient(ellipse 65% 42% at 92% -8%, color-mix(in srgb, var(--memo) 40%, transparent), transparent 58%),
+    radial-gradient(ellipse 55% 38% at 0% 28%, color-mix(in srgb, var(--mint) 42%, transparent), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 70% 100%, color-mix(in srgb, var(--sky) 38%, transparent), transparent 60%),
+    linear-gradient(180deg, #f8fafd 0%, var(--paper) 38%, #eef3f9 100%);
 }
 
 body::after {
@@ -97,14 +102,15 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.28;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
 }
 
 a {
   color: var(--accent);
   text-underline-offset: 0.18em;
+  transition: color 160ms var(--ease);
 }
 
 a:hover {
@@ -124,14 +130,17 @@ img {
 h1,
 h2,
 h3 {
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  font-family: var(--font-display);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  font-weight: 400;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 p {
   margin: 0 0 1rem;
+  text-wrap: pretty;
 }
 
 .shell {
@@ -159,12 +168,13 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--ink-soft);
   background: var(--memo);
   border: 1px dashed var(--memo-edge);
-  padding: 0.25rem 0.65rem;
+  padding: 0.28rem 0.7rem;
   border-radius: var(--radius);
 }
 
@@ -186,16 +196,23 @@ p {
   justify-content: center;
   gap: 0.4rem;
   min-height: var(--touch);
-  padding: 0.65rem 1.15rem;
+  padding: 0.7rem 1.25rem;
   font: inherit;
   font-weight: 600;
+  font-size: 0.98rem;
   text-decoration: none;
   border-radius: var(--radius);
   border: 1.5px solid var(--ink);
   background: var(--ink);
   color: #fff;
   cursor: pointer;
-  transition: transform 180ms var(--ease), background 180ms var(--ease), color 180ms var(--ease);
+  transition:
+    transform 200ms var(--ease-out),
+    background 180ms var(--ease),
+    color 180ms var(--ease),
+    box-shadow 200ms var(--ease),
+    border-color 180ms var(--ease);
+  box-shadow: 0 0 0 0 transparent;
 }
 
 .btn:hover {
@@ -203,6 +220,16 @@ p {
   border-color: var(--sky-ink);
   color: #fff;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -12px color-mix(in srgb, var(--ink) 55%, transparent);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 35%, white);
 }
 
 .btn--ghost {
@@ -224,7 +251,7 @@ p {
 }
 
 .btn--memo:hover {
-  background: #fff3b0;
+  background: #ffe99a;
   color: var(--ink);
   border-color: var(--ink);
 }
@@ -232,6 +259,8 @@ p {
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .cta-row {
@@ -250,21 +279,36 @@ p {
 }
 
 .section__eyebrow {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  line-height: 1.2;
   color: var(--sky-ink);
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.45rem;
 }
 
 .section__title {
-  font-size: clamp(1.6rem, 3.5vw, 2.15rem);
-  margin: 0 0 0.75rem;
+  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  margin: 0 0 0.85rem;
+  max-width: 18ch;
 }
 
 .section__lead {
   color: var(--ink-soft);
-  max-width: 36rem;
-  margin-bottom: 1.5rem;
+  max-width: 34rem;
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.section__punch {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+  max-width: 22ch;
 }
 
 .memo {
@@ -288,22 +332,22 @@ p {
   opacity: 0.85;
 }
 
-.star {
-  position: absolute;
-  width: 0.55rem;
-  height: 0.55rem;
-  background: var(--star);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  opacity: 0.7;
-  pointer-events: none;
+.page-header {
+  padding: clamp(2.25rem, 6vw, 4rem) 0 1.75rem;
 }
 
-.line-doodle {
-  stroke: color-mix(in srgb, var(--sky-ink) 35%, var(--line));
-  stroke-width: 1.5;
-  fill: none;
-  stroke-linecap: round;
-  stroke-dasharray: 3 6;
+.page-title {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  margin: 0 0 0.85rem;
+  max-width: 14ch;
+}
+
+.page-lead {
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 500;
+  margin-bottom: 1.35rem;
 }
 
 .skip-link {
@@ -319,47 +363,6 @@ p {
 
 .skip-link:focus {
   top: 1rem;
-}
-
-@keyframes rise-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.6rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes draw-dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
-}
-
-.anim-rise {
-  animation: rise-in 560ms var(--ease) both;
-}
-
-.anim-rise-delay {
-  animation: rise-in 640ms var(--ease) 120ms both;
-}
-
-.anim-twinkle {
-  animation: twinkle 3.2s ease-in-out infinite;
 }
 
 @media (max-width: 640px) {

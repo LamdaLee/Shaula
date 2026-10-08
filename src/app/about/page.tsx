@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 import styles from "./about.module.css";
 
@@ -11,52 +12,71 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="shell">
-      <header className={styles.header}>
-        <p className="section__eyebrow">소개·연락</p>
-        <h1 className={styles.title}>
-          {site.person}
-          <span className={styles.en}> / {site.personEn}</span>
-        </h1>
-        <p className={styles.lead}>어려운 것을 쉽게 전달해 주는 사람</p>
+      <header className="page-header">
+        <Reveal tone="scale">
+          <p className="section__eyebrow">소개·연락</p>
+          <h1 className="page-title">
+            {site.person}
+            <span className={styles.en}> / {site.personEn}</span>
+          </h1>
+          <p className={styles.role}>{site.role}</p>
+          <p className="page-lead">{site.tagline}</p>
+        </Reveal>
       </header>
 
-      <section className={styles.block} aria-labelledby="name-story">
-        <h2 id="name-story">이름과 Shaula</h2>
-        <p>
-          전갈자리의 별 <strong>샤울라(Shaula)</strong>, 다른 이름으로는 Lambda
-          Scorpii가 ‘람다’의 유래입니다. 사이트 브랜드 Shaula와 이름 이람다(Lee
-          Lamda)가 여기서 만납니다.
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>이름과 Shaula</h2>
+        <p className={styles.body}>
+          전갈자리의 별 <strong>샤울라(Shaula)</strong> — 다른 이름으로는 Lambda
+          Scorpii. 여기서 ‘람다’가 왔습니다.
         </p>
-      </section>
+        <p className={styles.body}>
+          사이트 브랜드 Shaula와 이름 {site.person}({site.personEn})가 그
+          지점에서 만납니다.
+        </p>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="now">
-        <h2 id="now">지금</h2>
-        <ul>
-          <li>교육운영 업무</li>
-          <li>바이브코딩으로 웹애플리케이션 개발</li>
-          <li>방향: AI 리터러시 교육</li>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>지금</h2>
+        <ul className={styles.now}>
+          <li>
+            <span className={styles.nowLabel}>하는 일</span>
+            교육운영
+          </li>
+          <li>
+            <span className={styles.nowLabel}>만드는 것</span>
+            바이브코딩으로 웹애플리케이션
+          </li>
+          <li>
+            <span className={styles.nowLabel}>향하는 곳</span>
+            AI 리터러시 교육
+          </li>
         </ul>
-        <p>{site.tagline}</p>
-      </section>
+        <p className={styles.support}>{site.taglineSupport}</p>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="bg">
-        <h2 id="bg">다양한 경험</h2>
-        <p>
-          문예창작, 공간 디자인, 마케팅 콘텐츠, 제과제빵, IT 교육 등 — 설명과
-          문제 해결 방식의 근거가 됩니다.
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>다양한 경험</h2>
+        <p className={styles.body}>
+          문예창작, 공간 디자인, 마케팅 콘텐츠, 제과제빵, IT 교육 — 설명과 문제
+          해결 방식의 근거가 됩니다.
         </p>
         <aside className="memo">
-          <p style={{ margin: 0 }}>
-            설명 사례: “재료 = 변수 / 레시피 = 알고리즘” — 베이킹 비유로
-            프로그래밍을 풀어 본 자료가 있습니다. 공개용 이미지:{" "}
+          <p className={styles.memoHand}>
+            “재료 = 변수 / 레시피 = 알고리즘”
+          </p>
+          <p className={styles.memoSub}>
+            베이킹 비유로 프로그래밍을 풀어 본 자료가 있습니다. 공개용 이미지:{" "}
             <span className="badge">확인 필요</span>
           </p>
         </aside>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="contact">
-        <h2 id="contact">연락</h2>
-        <p>공개 이메일로 교육 제안·협업·질문을 보내 주세요.</p>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>연락</h2>
+        <p className={styles.body}>
+          교육 제안·협업·질문 — 공개 이메일로 보내 주세요.
+        </p>
         <p className={styles.mail}>
           <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
@@ -74,7 +94,7 @@ export default function AboutPage() {
             교육 제안
           </Link>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }

@@ -1,57 +1,104 @@
-.header {
-  padding: clamp(2rem, 5vw, 3rem) 0 1rem;
-}
-
-.title {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  margin: 0 0 0.5rem;
-  font-family: var(--font-display);
-}
-
 .en {
+  display: block;
+  margin-top: 0.35rem;
   font-family: var(--font-body);
-  font-size: 0.55em;
+  font-size: 0.4em;
   font-weight: 600;
-  color: var(--ink-soft);
+  letter-spacing: 0;
+  color: var(--ink-muted);
 }
 
-.lead {
-  font-size: 1.15rem;
-  font-weight: 700;
+.role {
+  font-family: var(--font-hand);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
   color: var(--sky-ink);
+  margin: 0 0 0.85rem;
+  line-height: 1.25;
 }
 
 .block {
-  padding: 1.75rem 0;
+  padding: 2rem 0 2.35rem;
   border-top: 1px dashed var(--line);
-  max-width: 40rem;
 }
 
-.block h2 {
-  margin: 0 0 0.75rem;
-  font-size: 1.3rem;
+.h2 {
+  margin: 0 0 0.95rem;
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
 }
 
-.block ul {
-  margin: 0 0 1rem;
-  padding-left: 1.2rem;
+.body {
   color: var(--ink-soft);
+  font-weight: 500;
+  max-width: 38rem;
+}
+
+.now {
+  margin: 0 0 1.15rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  max-width: 36rem;
+}
+
+.now li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  letter-spacing: -0.02em;
+}
+
+.nowLabel {
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--sky-ink);
+}
+
+.support {
+  color: var(--ink-soft);
+  font-weight: 500;
+  max-width: 34rem;
+}
+
+.memoHand {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+
+.memoSub {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: 0.98rem;
 }
 
 .mail {
-  font-size: 1.35rem;
-  font-weight: 700;
+  margin: 0.5rem 0 1rem;
 }
 
 .mail a {
-  color: var(--sky-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  letter-spacing: -0.02em;
   text-decoration: none;
+  color: var(--sky-ink);
+  transition: color 160ms var(--ease), transform 200ms var(--ease-out);
+  display: inline-block;
 }
 
 .mail a:hover {
-  text-decoration: underline;
+  color: var(--ink);
+  transform: translateY(-2px);
 }
 
 .note {
   color: var(--ink-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.35rem;
 }
