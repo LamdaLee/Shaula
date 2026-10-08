@@ -44,14 +44,9 @@ export default function HomePage() {
     <section className={`section ${styles.eduBand}`} aria-labelledby="materials-title">
       <div className="shell"><Reveal>
         <p className="section__eyebrow">내가 이해한 것을, 쉬운 말로</p>
-        <h2 id="materials-title" className="section__title section__title--lines">익숙한 경험으로,<br />낯선 기술을 풀어봅니다.</h2>
-        <p className="section__lead">재료에 이름을 붙이고, 과정을 나누고, 결과를 확인하기. 케이크를 만들던 경험은 프로그래밍을 설명하는 비유가 되었습니다.</p>
-        <Link className={styles.courseCard} href="/education#materials">
-          <strong>케이크 굽기로 이해하는 프로그래밍</strong>
-          <span>강의에 사용한 설명 자료를 바탕으로, 변수와 함수를 다시 풀어봅니다.</span>
-          <span>설명 자료 살펴보기 →</span>
-        </Link>
-        <p className={styles.smallLinks}><Link href="/try">내 업무로 AI 요청문 만들어보기 →</Link></p>
+        <h2 id="materials-title" className="section__title section__title--lines">이해한 것을,<br />쉬운 말로 나눕니다.</h2>
+        <p className="section__lead">기술의 구조를 조금 알면, 원하는 것을 설명하고 나온 결과를 판단하기가 쉬워집니다. 만들면서 알게 된 것을 익숙한 비유와 작은 실습으로 나누고 싶습니다.</p>
+        <p className={styles.smallLinks}><Link href="/education">쉽게 풀어보기 →</Link></p>
       </Reveal></div>
     </section>
   </>;
