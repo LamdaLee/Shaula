@@ -13,10 +13,10 @@ export default function HomePage() {
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={`shell ${styles.heroInner}`}>
         <div className={styles.heroCopy}>
-          <p className="section__eyebrow">이람다 · 생각을 적고, 필요한 도구를 만듭니다</p>
+          <p className="section__eyebrow">이람다 · 교육 운영 · AI와 웹앱 만들기</p>
           <h1 id="hero-title" className={styles.heroLead}>
-            <span className={styles.heroPhrase}>내가 겪은 불편함이,</span>{" "}
-            <span className={styles.heroPhrase}>만드는 이유가 됩니다.</span>
+            <span className={styles.heroPhrase}>어려운 기술을 쉽게 풀고,</span>{" "}
+            <span className={styles.heroPhrase}>필요한 도구를 직접 만듭니다.</span>
           </h1>
           <p className={styles.heroSupport}>{site.taglineSupport}</p>
           <div className={styles.heroActions}>
@@ -31,11 +31,16 @@ export default function HomePage() {
         </figure>
       </div>
     </section>
-    <section className={`section ${styles.band}`} aria-labelledby="purpose-title">
+    <section className={`section ${styles.band}`} aria-labelledby="work-title">
       <div className="shell"><Reveal>
-        <p className="section__eyebrow">만드는 일에 담고 싶은 마음</p>
-        <h2 id="purpose-title" className="section__title section__title--lines">생각을 잇고,<br />잠깐 멈추는 자리.</h2>
-        <p className="section__lead">정리되지 않은 생각도 남겨둘 수 있고, 결정을 잠시 미뤄도 괜찮은 자리. 기술이 삶을 재촉하기보다, 나의 속도로 생각하고 선택하는 데 도움이 되면 좋겠습니다.</p>
+        <p className="section__eyebrow">직접 만들고, 설명하고, 확인합니다</p>
+        <h2 id="work-title" className="section__title">지금 하고 있는 일</h2>
+        <dl className={styles.workList}>
+          <div><dt>만들기</dt><dd>Pause &amp; Ponder와 별이음을 직접 만들고 개선합니다.</dd></div>
+          <div><dt>설명하기</dt><dd>케이크 만들기처럼 익숙한 경험으로 프로그래밍을 풀어봅니다.</dd></div>
+          <div><dt>확인하기</dt><dd>AI가 제안한 기능을 직접 사용하고, 필요한 방향으로 고칩니다.</dd></div>
+        </dl>
+        <p className={styles.purposeNote}>생각을 남기고 이어볼 수 있도록, 결정을 잠시 미뤄도 괜찮도록. 나의 속도로 생각하고 선택하는 데 도움이 되는 도구를 만들고 싶습니다.</p>
       </Reveal></div>
     </section>
     <section className="section" aria-label="AI와 함께 만드는 태도">

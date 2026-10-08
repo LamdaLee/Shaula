@@ -35,3 +35,11 @@
 
 .heroActions { align-items: center; }
 .smallLinks { margin: 1.5rem 0 0; font-size: .95rem; }
+
+.workList { max-width: 48rem; margin: 1.5rem 0; }
+.workList > div { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.workList > div:first-child { border-top: 1px solid var(--line); }
+.workList dt { font-weight: 700; color: var(--sky-ink); }
+.workList dd { margin: 0; color: var(--ink-soft); }
+.purposeNote { max-width: 40rem; margin: 1.75rem 0 0; color: var(--ink-soft); }
+@media (max-width: 380px) { .workList > div { grid-template-columns: 1fr; gap: .35rem; } }

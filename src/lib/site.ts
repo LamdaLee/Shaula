@@ -9,9 +9,9 @@ export const site = {
   url: "https://shaula.kr",
   /** Role line — keep honest, sharpen delivery */
   role: "기술을 쉽게 풀어내는 콘텐츠 제작자",
-  tagline: "생각을 적고, AI와 함께 필요한 도구를 만듭니다.",
+  tagline: "어려운 기술을 쉽게 풀고, 필요한 도구를 직접 만듭니다.",
   taglineSupport:
-    "흩어진 생각, 잠깐 멈추고 싶은 마음, 어렵게 느껴지는 기술에 관심이 있습니다. AI와 함께 작은 도구를 만들고, 그 과정에서 알게 된 것을 쉬운 말로 나눕니다.",
+    "교육 운영을 하며, AI와 함께 웹앱을 만드는 이람다입니다. 익숙한 경험으로 기술을 설명하고, 직접 만들면서 배운 것을 작은 콘텐츠와 실습으로 나누고 싶습니다.",
   footer: "shaula — 이람다의 생각과 만드는 일",
   byeolieum: {
     name: "별이음",

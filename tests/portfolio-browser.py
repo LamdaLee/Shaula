@@ -15,7 +15,7 @@ with sync_playwright() as p:
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,path,'overflow')
    assert page.locator('main').inner_text().strip()
    if path=='/':
-    expect(page.get_by_role('heading',name='내가 겪은 불편함이, 만드는 이유가 됩니다.')).to_be_visible()
+    expect(page.get_by_role('heading',name='어려운 기술을 쉽게 풀고, 필요한 도구를 직접 만듭니다.')).to_be_visible()
     expect(page.get_by_role('heading',name='AI의 초안에 사람의 판단을 더합니다.')).to_be_visible()
     page.get_by_text('만드는 과정 보기',exact=True).click()
     expect(page.get_by_role('heading',name='확인하고 수정',exact=True)).to_be_visible()
