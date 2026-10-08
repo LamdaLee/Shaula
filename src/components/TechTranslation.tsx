@@ -67,7 +67,9 @@ export function HumanLoop() {
   return (
     <div className={styles.loop}>
       <p className="section__eyebrow">HUMAN IN THE LOOP</p>
-      <h2 className="section__title">AI의 초안에, 사람의 판단을 더합니다.</h2>
+      <h2 className="section__title section__title--lines">
+        AI의 초안에<br />사람의 판단을 더합니다.
+      </h2>
       <ol className={styles.pipeline}>
         {[
           {

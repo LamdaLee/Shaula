@@ -416,3 +416,5 @@ pre { overflow-wrap: anywhere; }
 section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
 summary { cursor: pointer; font-weight: 600; padding: .75rem 0; }
 details > summary + * { margin-top: .75rem; }
+
+.section__title--lines { max-width: none; }

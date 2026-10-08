@@ -73,8 +73,8 @@ export default function HomePage() {
             <p className="section__eyebrow">
               기획에서 배포까지 · 직접 만든 두 개의 도구
             </p>
-            <h2 id="projects-title" className="section__title">
-              내가 겪은 불편함이, 만드는 이유가 됩니다.
+            <h2 id="projects-title" className="section__title section__title--lines">
+              내가 겪은 불편함이,<br />만드는 이유가 됩니다.
             </h2>
             <p className="section__lead">
               필요를 정의하고, AI와 구현하고, 사용하면서 다시 고칩니다. 완성
