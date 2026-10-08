@@ -191,10 +191,14 @@
   .hero {
     align-items: flex-end;
     min-height: min(96vh, 48rem);
-    padding-top: clamp(11rem, 42vw, 16rem);
+    padding-top: clamp(12rem, 46vw, 17rem);
   }
 
   .heroInner {
     max-width: 100%;
+  }
+
+  .heroLead {
+    max-width: 16ch;
   }
 }
