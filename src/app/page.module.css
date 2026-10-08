@@ -1,0 +1,112 @@
+.hero {
+  position: relative;
+  padding: clamp(2.5rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
+  overflow: hidden;
+}
+
+.heroBrand {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 12vw, 5.5rem);
+  line-height: 0.95;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.heroPerson {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+  font-weight: 500;
+}
+
+.heroLead {
+  font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+  font-weight: 700;
+  max-width: 28rem;
+  margin: 0 0 0.85rem;
+}
+
+.heroSupport {
+  max-width: 34rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.75rem;
+}
+
+.heroArt {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroSvg {
+  position: absolute;
+  right: -2%;
+  top: 10%;
+  width: min(42vw, 22rem);
+  height: auto;
+  opacity: 0.85;
+}
+
+@media (max-width: 720px) {
+  .heroSvg {
+    opacity: 0.35;
+    width: 55vw;
+    top: 0;
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 760px) {
+  .panel {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+}
+
+.panelBody h2 {
+  margin-top: 0;
+}
+
+.bgGrid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bgItem {
+  background: color-mix(in srgb, white 70%, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contactBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contactMail {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sky-ink);
+  text-decoration: none;
+}
+
+.contactMail:hover {
+  text-decoration: underline;
+}

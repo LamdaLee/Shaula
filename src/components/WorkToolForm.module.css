@@ -1,0 +1,161 @@
+.wrap {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.progress {
+  display: grid;
+  gap: 0.45rem;
+  position: sticky;
+  top: 3.5rem;
+  z-index: 20;
+  padding: 0.65rem 0.85rem;
+  background: color-mix(in srgb, var(--paper) 92%, white);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.bar {
+  height: 0.35rem;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  overflow: hidden;
+}
+
+.bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: var(--p, 0%);
+  background: var(--sky-ink);
+  transition: width 220ms var(--ease);
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  background: color-mix(in srgb, white 80%, var(--paper));
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  padding: 1.15rem 1.2rem 1.35rem;
+}
+
+.fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.legend {
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  min-height: var(--touch);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--focus);
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.error {
+  margin: 0;
+  color: var(--danger);
+  font-weight: 600;
+  background: #fdecec;
+  border: 1px solid color-mix(in srgb, var(--danger) 30%, white);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.85rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.helpers {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.helperText {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+.card {
+  background: var(--memo);
+  border: 1.5px dashed var(--memo-edge);
+  border-radius: 4px;
+  padding: 1.25rem 1.3rem;
+  box-shadow: 3px 4px 0 color-mix(in srgb, var(--memo-edge) 40%, transparent);
+}
+
+.cardTitle {
+  margin: 0 0 0.85rem;
+  font-size: 1.35rem;
+}
+
+.cardBody {
+  margin: 0 0 1rem;
+  white-space: pre-wrap;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.disclaimer {
+  margin: 0 0 1rem;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+.note {
+  margin: 0.5rem 0 0;
+  color: var(--mint-ink);
+  font-weight: 600;
+}
