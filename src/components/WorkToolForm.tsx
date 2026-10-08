@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { site } from "@/lib/site";
 import { useEffect, useId, useRef, useState } from "react";
 import {
   EXAMPLE_ANSWERS,
@@ -302,25 +301,11 @@ export function WorkToolForm() {
             className={styles.educationCta}
             aria-labelledby="next-learning-title"
           >
-            <p className="section__eyebrow">요청문에서, 작동하는 도구로</p>
-            <h3 id="next-learning-title">
-              이 요청문을 웹 화면이나 업무 자동화로 연결해 볼까요?
-            </h3>
-            <p>
-              50분씩 작은 과제를 완성하며 입력·처리·확인·배포를 경험합니다.
-              준비된 예제로 시작하는 수업과 조직의 실제 업무를 다루는 실습을
-              제안합니다.
-            </p>
+            <p className="section__eyebrow">요청한 다음에는, 직접 확인하기</p>
+            <h3 id="next-learning-title">어떤 결과가 나오면 잘 작동한 걸까요?</h3>
+            <p>빠진 조건은 없는지, 실제 자료와 맞는지, 사람이 결정해야 할 부분이 남아 있는지 살펴보세요. 작은 화면 하나로 확인하는 과정을 해볼 수 있습니다.</p>
             <div className="cta-row">
-              <Link className="btn" href="/education#worksheets">
-                50분 실습 커리큘럼 보기
-              </Link>
-              <a
-                className="btn btn--ghost"
-                href={`mailto:${site.email}?subject=${encodeURIComponent("조직 맞춤형 워크숍 문의")}`}
-              >
-                조직 맞춤형 워크숍 문의
-              </a>
+              <Link className="btn" href="/education#input-process-output">작은 실습으로 확인해 보기</Link>
             </div>
           </section>
           {storageNotice}

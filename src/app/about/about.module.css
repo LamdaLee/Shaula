@@ -169,3 +169,6 @@
     align-items: baseline;
   }
 }
+
+.nameStory { margin-top: 1.25rem; }
+.nameStory[open] .experiences { margin-top: 1.25rem; }

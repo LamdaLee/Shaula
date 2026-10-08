@@ -70,42 +70,25 @@ export function HumanLoop() {
       <h2 className="section__title section__title--lines">
         AI의 초안에<br />사람의 판단을 더합니다.
       </h2>
-      <ol className={styles.pipeline}>
-        {[
-          {
-            label: "사람",
-            title: "거친 생각과 필요",
-            detail: "무엇이 불편한지, 누가 쓸지 정의",
-          },
-          {
-            label: "AI",
-            title: "분류·초안 제안",
-            detail: "가능성을 넓히고 구현의 출발점 만들기",
-          },
-          {
-            label: "사람",
-            title: "검증과 판단",
-            detail: "원문·동작·오류를 직접 확인하고 수정",
-          },
-          {
-            label: "코드",
-            title: "규칙과 자동화",
-            detail: "확인한 규칙으로 저장·계산·반복 실행",
-          },
-        ].map((step, i) => (
-          <li key={step.title}>
-            <span>
-              {String(i + 1).padStart(2, "0")} · {step.label}
-            </span>
-            <h3>{step.title}</h3>
-            <p>{step.detail}</p>
-          </li>
-        ))}
-      </ol>
       <p className={styles.loopNote}>
-        예상과 실제 결과가 다르면 다시 정의하고 고칩니다. AI에게 맡긴 일과
-        사람이 확인한 일을 결과물에 함께 남깁니다.
+        AI는 함께 초안을 만드는 도구입니다. 빠르게 나온 답을 그대로 따르기보다,
+        제게 맞는지 살펴보고 바꿉니다. 무엇을 만들고 어떻게 고칠지는 제가 판단합니다.
       </p>
+      <details className={styles.process}>
+        <summary>만드는 과정 보기</summary>
+        <ol className={styles.pipeline}>
+          {[
+            { label: "내가", title: "불편을 구체적으로", detail: "누구에게, 어떤 순간에, 무엇이 어려운지 적기" },
+            { label: "AI와", title: "초안을 함께", detail: "가능한 방식과 구현의 출발점 만들기" },
+            { label: "다시 내가", title: "확인하고 수정", detail: "필요에 맞는지, 실제로 작동하는지 살피기" },
+            { label: "사용하면서", title: "다시 판단", detail: "남은 불편을 찾아 다음 수정으로 이어가기" },
+          ].map((step, i) => <li key={step.title}>
+            <span>{String(i + 1).padStart(2, "0")} · {step.label}</span>
+            <h3>{step.title}</h3><p>{step.detail}</p>
+          </li>)}
+        </ol>
+        <p className={styles.loopNote}>Human-in-the-Loop는 AI의 결과를 사람이 확인하고 조정하는 방식입니다. 제 작업에서는 요구를 정하고, 제안을 고르고, 실제 결과를 확인하는 과정으로 이어집니다.</p>
+      </details>
     </div>
   );
 }

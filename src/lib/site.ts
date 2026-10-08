@@ -8,11 +8,11 @@ export const site = {
   domain: "shaula.kr",
   url: "https://shaula.kr",
   /** Role line — keep honest, sharpen delivery */
-  role: "테크 트랜스레이터 · 바이브코딩 교육 기획자",
-  tagline: "어려운 AI와 웹 기술을, 일상과 업무에서 작동하는 도구로.",
+  role: "기술을 쉽게 풀어내는 콘텐츠 제작자",
+  tagline: "생각을 적고, AI와 함께 필요한 도구를 만듭니다.",
   taglineSupport:
-    "개념은 익숙한 비유로 번역하고, 구현은 AI와 함께. 아이디어를 실제 배포되는 웹앱으로 만듭니다.",
-  footer: "shaula — 이람다의 AI 리터러시 포트폴리오",
+    "흩어진 생각, 잠깐 멈추고 싶은 마음, 어렵게 느껴지는 기술에 관심이 있습니다. AI와 함께 작은 도구를 만들고, 그 과정에서 알게 된 것을 쉬운 말로 나눕니다.",
+  footer: "shaula — 이람다의 생각과 만드는 일",
   byeolieum: {
     name: "별이음",
     demo: "https://byeolieum.com",
@@ -33,8 +33,8 @@ export const site = {
 
 export const nav = [
   { href: "/", label: "홈" },
-  { href: "/case", label: "앱 제작 사례" },
+  { href: "/case", label: "만드는 것들" },
   { href: "/try", label: "업무 체험" },
-  { href: "/education", label: "교육" },
+  { href: "/education", label: "쉽게 풀어보기" },
   { href: "/about", label: "소개" },
 ] as const;

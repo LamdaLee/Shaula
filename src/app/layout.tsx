@@ -16,7 +16,7 @@ const sans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.person} AI 리터러시 포트폴리오`,
+    default: `${site.name} — ${site.person}의 생각과 만드는 일`,
     template: `%s · ${site.name}`,
   },
   description: site.tagline,

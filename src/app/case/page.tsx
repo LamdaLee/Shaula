@@ -50,13 +50,12 @@ export default function CasePage() {
       <header className="page-header">
         <p className="section__eyebrow">CASE STUDIES · 필요에서 출발한 설계</p>
         <h1 className="page-title">
-          문제를 작게 나누고,
+          내게 필요했던,
           <br />
-          작동하는 도구로.
+          작은 도구들.
         </h1>
         <p className="page-lead">
-          화려한 결과보다 왜 이 기능이 필요한지, 어디까지 AI에 맡겼는지, 무엇을
-          직접 확인했는지를 보여줍니다.
+          생활에서 느낀 불편을 작은 도구로 옮겨봤습니다. 왜 이런 기능을 만들었는지, AI와 함께 어떤 구조를 생각했는지 남깁니다.
         </p>
         <ProjectCards />
       </header>
@@ -323,7 +322,7 @@ export default function CasePage() {
           업무 활용 지점 찾기 해보기
         </Link>
         <Link className="btn btn--ghost" href="/education">
-          교육 제안 보기
+          쉽게 풀어보기
         </Link>
         <Link className="btn btn--memo" href="/about">
           연락하기

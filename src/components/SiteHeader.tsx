@@ -81,7 +81,7 @@ export function SiteHeader() {
             ))}
           </ul>
           <Link href="/try" className={styles.cta}>
-            내 업무에 AI 적용해 보기
+            직접 해보기
           </Link>
         </nav>
 
@@ -129,7 +129,7 @@ export function SiteHeader() {
             className={styles.mobileCta}
             onClick={() => setOpen(false)}
           >
-            내 업무에 AI 적용해 보기
+            직접 해보기
           </Link>
         </nav>
       </div>
