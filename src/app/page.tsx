@@ -19,7 +19,9 @@ export default function HomePage() {
               이람다 · 테크 트랜스레이터 & 바이브코딩 교육 기획자
             </p>
             <h1 id="hero-title" className={styles.heroLead}>
-              {site.tagline}
+              <span className={styles.heroPhrase}>어려운 AI와 웹 기술을,</span>{" "}
+              <span className={styles.heroPhrase}>일상과 업무에서</span>{" "}
+              <span className={styles.heroPhrase}>작동하는 도구로.</span>
             </h1>
             <p className={styles.heroSupport}>{site.taglineSupport}</p>
             <div className={styles.heroActions}>
@@ -52,12 +54,16 @@ export default function HomePage() {
             <p className="section__eyebrow">
               TECH TRANSLATOR · 익숙한 경험에서 출발하기
             </p>
-            <h2 id="translation-title" className="section__title">
-              기술의 구조를, 일상의 언어로.
+            <h2
+              id="translation-title"
+              className="section__title section__title--lines"
+            >
+              기술의 구조를,
+              <br />
+              일상의 언어로.
             </h2>
             <p className="section__lead">
-              문법을 모두 외우지 않아도 구조를 이해하면 AI에 구체적으로 요청할
-              수 있습니다. 비유로 시작하고, 실제 동작으로 확인합니다.
+              익숙한 비유로 구조를 이해하고, 실제 동작으로 확인합니다.
             </p>
             <TechTranslation />
             <HumanLoop />
@@ -73,8 +79,13 @@ export default function HomePage() {
             <p className="section__eyebrow">
               기획에서 배포까지 · 직접 만든 두 개의 도구
             </p>
-            <h2 id="projects-title" className="section__title section__title--lines">
-              내가 겪은 불편함이,<br />만드는 이유가 됩니다.
+            <h2
+              id="projects-title"
+              className="section__title section__title--lines"
+            >
+              내가 겪은 불편함이,
+              <br />
+              만드는 이유가 됩니다.
             </h2>
             <p className="section__lead">
               필요를 정의하고, AI와 구현하고, 사용하면서 다시 고칩니다. 완성
@@ -93,8 +104,8 @@ export default function HomePage() {
               AI, 어디에 쓰면 좋을까요?
             </h2>
             <p className="section__lead">
-              막히는 작업 하나를 골라 보세요. 6개 질문으로 입력 자료, 원하는
-              결과, 확인할 항목을 정리하고 시험할 요청문을 만듭니다.
+              막히는 업무 하나를 골라 보세요. 6개 질문에 답하면 AI에 요청할 일과
+              직접 확인할 기준이 정리됩니다.
             </p>
             <div className={`memo ${styles.experimentPreview}`}>
               <strong>예시 · 회의 메모 정리</strong>
@@ -117,13 +128,14 @@ export default function HomePage() {
           <Reveal>
             <p className="section__eyebrow">작은 과제를 완성하며 배우는 교육</p>
             <span className="badge">교육 제안 · 프로그램 설계</span>
-            <h2 id="edu-title" className="section__title">
-              만들고, 확인하며 AI와 친해지기
+            <h2 id="edu-title" className="section__title section__title--lines">
+              만들고, 확인하며
+              <br />
+              AI와 친해지기
             </h2>
             <p className="section__lead">
-              내 이야기를 담은 웹페이지부터 필요한 기능이 있는 웹앱까지. 매회
-              50분, 작동하는 결과물 하나를 만들고 직접 확인하는 수업을
-              설계합니다.
+              웹페이지부터 작은 웹앱까지. 매회 50분, 한 기능을 만들고 직접
+              시험하는 수업을 설계합니다.
             </p>
             <div className={styles.courseGrid}>
               <Link className={styles.courseCard} href="/education#life">
@@ -142,28 +154,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="about-title">
-        <div className="shell">
-          <Reveal>
-            <p className="section__eyebrow">어려운 것을 쉽게 전달하는 사람</p>
-            <h2 id="about-title" className="section__title">
-              경험이 설명 방식이 됩니다
-            </h2>
-            <p className="section__lead">
-              문예창작, 마케팅, 제과제빵, IT 교육을 거쳐 지금은 교육을 운영하고
-              웹앱을 만듭니다. 이 경험을 AI 리터러시 교육으로 연결합니다.
-            </p>
-            <p className={styles.bakeNote}>“재료 = 변수 / 레시피 = 알고리즘”</p>
-            <p className="section__lead">
-              익숙한 경험으로 낯선 개념을 설명합니다.
-            </p>
-            <Link className="btn btn--ghost" href="/about">
-              이람다와 Shaula 이야기
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
       <section className="section" aria-labelledby="contact-title">
         <div className="shell">
           <div className={`memo ${styles.contactBox}`}>
@@ -173,6 +163,7 @@ export default function HomePage() {
                 함께 풀어볼 일이 있나요?
               </h2>
               <p>대상과 고민하는 문제를 알려주세요.</p>
+              <Link href="/about">이람다의 배경과 일하는 방식 →</Link>
             </div>
             <a className={styles.contactMail} href={`mailto:${site.email}`}>
               {site.email}
