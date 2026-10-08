@@ -48,10 +48,10 @@ export default function HomePage() {
     </section>
     <section className={`section ${styles.eduBand}`} aria-labelledby="materials-title">
       <div className="shell"><Reveal>
-        <p className="section__eyebrow">내가 이해한 것을, 쉬운 말로</p>
-        <h2 id="materials-title" className="section__title section__title--lines">이해한 것을,<br />쉬운 말로 나눕니다.</h2>
-        <p className="section__lead">기술의 구조를 조금 알면, 원하는 것을 설명하고 나온 결과를 판단하기가 쉬워집니다. 만들면서 알게 된 것을 익숙한 비유와 작은 실습으로 나누고 싶습니다.</p>
-        <p className={styles.smallLinks}><Link href="/education">쉽게 풀어보기 →</Link></p>
+        <p className="section__eyebrow">AI 리터러시 · 앞으로 만들어갈 교육</p>
+        <h2 id="materials-title" className="section__title section__title--lines">AI를 이해하고,<br />스스로 활용하는 교육으로.</h2>
+        <p className="section__lead">교육 운영과 기초 웹 교육 경험을 바탕으로, AI에게 질문하는 데서 그치지 않고 작은 기능을 만들고 결과를 확인하는 학습을 준비하고 있습니다. 익숙한 비유와 50분 단위의 작은 과제로 시작하고 싶습니다.</p>
+        <p className={styles.smallLinks}><Link href="/education">교육 방향과 실습 자료 보기 →</Link></p>
       </Reveal></div>
     </section>
   </>;

@@ -7,9 +7,9 @@ import { InputProcessOutputDemo } from "@/components/InputProcessOutputDemo";
 import styles from "./education.module.css";
 
 export const metadata: Metadata = {
-  title: "쉽게 풀어보기",
+  title: "AI 교육 · 이해하고 만들며 확인하기",
   description:
-    "익숙한 비유로 기술을 설명하고, 작은 실습으로 직접 확인하는 이람다의 콘텐츠",
+    "교육 운영과 기초 웹 교육 경험에서 출발한 AI 리터러시 교육 방향, 준비 중인 프로젝트 학습 구성과 실습 자료",
   alternates: { canonical: "/education" },
 };
 const life = [
@@ -46,10 +46,45 @@ export default function EducationPage() {
   return (
     <div className="shell">
       <header className="page-header">
-        <p className="section__eyebrow">익숙한 경험에서, 작은 이해로</p>
-        <h1 className="page-title">어려운 기술을,<br />쉽게 풀어보기.</h1>
-        <p className="page-lead">강의에 사용했던 설명 자료를 다시 다듬고, AI와 웹앱을 만들며 배운 내용을 작은 실습으로 정리하고 있습니다. 익숙한 비유로 이해하고, 직접 바꿔 보고, 나온 결과를 확인해봅니다.</p>
+        <p className="section__eyebrow">AI LITERACY · 교육과 콘텐츠</p>
+        <h1 className="page-title">AI를 이해하고,<br />만들면서 확인하기.</h1>
+        <p className="page-lead">교육 운영과 JavaScript·HTML/CSS 기초 교육을 경험했습니다. 이제는 AI와 함께 작은 결과물을 만들고, 나온 답을 스스로 판단할 수 있는 AI 리터러시 교육으로 이어가고 싶습니다. 기존 설명 자료를 다듬으며 프로젝트 학습 구성과 짧은 실습을 준비하고 있습니다.</p>
       </header>
+      <section id="approach" className={styles.block}>
+        <h2 className={styles.h2}>처음 시작하는 사람의 눈높이에서</h2>
+        <p className={styles.body}>무엇을 요청해야 할지 막막하거나, 오류 한 줄에 멈추는 사람도 시작할 수 있도록. 개념을 길게 듣기보다 작은 과제를 풀며 구조를 이해하는 방향을 생각하고 있습니다.</p>
+        <dl className={styles.learningGoals}>
+          <div><dt>이해하기</dt><dd>익숙한 비유로 입력·처리·저장·배포의 구조 살펴보기</dd></div>
+          <div><dt>만들기</dt><dd>AI와 기능 하나를 구현하고, 직접 바꿔보기</dd></div>
+          <div><dt>판단하기</dt><dd>예상과 실제 결과를 비교하고, 사람이 결정할 조건 정하기</dd></div>
+        </dl>
+      </section>
+      <section id="programs" className={styles.block}>
+        <p className="section__eyebrow">프로젝트 학습 · 준비 중인 구성안</p>
+        <h2 className={styles.h2}>작은 과제를 하나씩, 50분씩.</h2>
+        <p className={styles.body}>긴 영상보다 함께 풀이하고 구현하는 과정을 구상하고 있습니다. 아래는 준비 중인 구성안이며, 아직 운영한 AI 교육 프로그램은 아닙니다.</p>
+        <div className={styles.programGrid}>
+          <section id="life" className={styles.programCard}>
+            <span className="badge">입문 구성안 · 10회 × 50분</span>
+            <h3>나의 일상을 담은 인터랙티브 웹페이지</h3>
+            <p>나의 경험·강점·꿈을 정리하고, HTML/CSS와 작은 상호작용으로 표현합니다. AI의 추측과 나의 사실을 구분하며 개인 기능 하나를 더해봅니다.</p>
+            <details><summary>10회 작은 과제 살펴보기</summary><ol className={styles.sessions}>
+              {life.map((item, i) => <li className={styles.session} key={item}><span className={styles.sessionNum}>{i + 1}</span>{item}</li>)}
+            </ol></details>
+          </section>
+          <section id="webapp" className={styles.programCard}>
+            <span className="badge badge--sky">웹앱 구성안 · 16회 × 50분</span>
+            <h3>생각모음부터 배포까지</h3>
+            <p>Pause &amp; Ponder와 별이음 제작에서 배운 입력·연결·저장 구조를 바탕으로, 나만의 작은 웹앱에 기능을 붙이고 시험해봅니다. 터미널·API·DB·배포 개념도 필요한 순간에 연결합니다.</p>
+            <details><summary>16회 작은 과제 살펴보기</summary><ol className={styles.sessions}>
+              {webapp.map((item, i) => <li className={styles.session} key={item}><span className={styles.sessionNum}>{i + 1}</span>{item}</li>)}
+            </ol></details>
+          </section>
+        </div>
+        <p className={`memo ${styles.rhythm}`}><span className={styles.rhythmLabel}>한 회차에 남기고 싶은 것</span>만든 기능 하나 · 직접 확인한 결과 · 작동 원리를 설명하는 한 문장</p>
+        <p className={styles.note}>50분은 회차의 길이입니다. 설치와 계정 준비, 실습 범위는 따로 점검하며, 한 회차에 전체 웹앱 완성이나 배포를 보장하지 않습니다.</p>
+        <div className="cta-row"><a className="btn btn--ghost" href="#materials">기존 설명 자료 보기</a><a className="btn btn--ghost" href="#worksheets">샘플 활동지 보기</a></div>
+      </section>
       <section id="materials" className={styles.block}>
         <h2 className={styles.h2}>경험에서 출발한 설명 자료</h2>
         <p className={styles.body}>케이크 만들기와 자동차처럼 익숙한 대상에서 출발했습니다. 쉽게 전달하면서도 실제 구조와 어긋나지 않도록, 설명을 계속 다듬고 있습니다.</p>
@@ -150,63 +185,6 @@ export default function EducationPage() {
       </section>
       <section id="concepts" className={styles.block}>
         <details><summary>다른 기술도 익숙한 비유로 살펴보기</summary><TechTranslation /></details>
-      </section>
-      <section className={styles.block}>
-        <details>
-          <summary>앞으로 만들어보고 싶은 학습 구성</summary>
-          <p className={styles.note}>작은 과제를 하나씩 만들고 확인하는 프로젝트 학습을 구상하고 있습니다. 아래는 준비 중인 구성안이며, 운영 실적이나 회차마다 완성·배포를 보장하는 프로그램이 아닙니다.</p>
-      <section id="life" className={styles.block}>
-        <p className="section__eyebrow">준비 중인 구성안 01 · 10회 × 50분</p>
-        <h2 className={styles.h2}>
-          [입문] 나의 일상을 담은 인터랙티브 웹페이지
-        </h2>
-        <p className={styles.body}>
-          코딩 경험이 적은 성인을 위한 자기표현과 AI 활용 입문입니다.
-          소개·경험·강점·꿈과 개인 기능 하나를 담은 웹페이지를 만듭니다.
-        </p>
-        <details>
-          <summary>10회 과제 살펴보기</summary>
-          <ol className={styles.sessions}>
-            {life.map((item, i) => (
-              <li className={styles.session} key={item}>
-                <span className={styles.sessionNum}>{i + 1}</span>
-                {item}
-              </li>
-            ))}
-          </ol>
-        </details>
-      </section>
-      <section id="webapp" className={styles.block}>
-        <p className="section__eyebrow">준비 중인 구성안 02 · 16회 × 50분</p>
-        <h2 className={styles.h2}>
-          [심화] 생각모음부터 배포까지: AI와 만드는 나만의 웹앱
-        </h2>
-        <p className={styles.body}>
-          AI로 코딩을 시작하고 싶은 입문자를 위한 과정입니다. Pause & Ponder의
-          입력·규칙 분리와 별이음의 카드·연결·저장 구조를 차용합니다. 생각과
-          회고를 기록하는 앱에 입력·저장·선택적 AI 기능을 하나씩 붙이고
-          배포합니다.
-        </p>
-        <p className={styles.body}>
-          시작 파일과 복구 파일, API·인증·데이터베이스 연결 예제를 준비하는 방향을 생각하고 있습니다. 운영 전 도구 설치와 계정 준비, 실습 범위를 확인해야 합니다.
-        </p>
-        <details>
-          <summary>16회 작은 과제 살펴보기</summary>
-          <ol className={styles.sessions}>
-            {webapp.map((item, i) => (
-              <li className={styles.session} key={item}>
-                <span className={styles.sessionNum}>{i + 1}</span>
-                {item}
-              </li>
-            ))}
-          </ol>
-        </details>
-        <p className={`memo ${styles.rhythm}`}>
-          <span className={styles.rhythmLabel}>한 회차의 흐름</span>5분 결과
-          체험 → 5분 과제 확인 → 25분 제작 → 10분 시험·개념 확인 → 5분 저장·회고
-        </p>
-      </section>
-        </details>
       </section>
       <section className={styles.block}>
         <h2 className={styles.h2}>익숙한 경험으로 설명한다면?</h2>

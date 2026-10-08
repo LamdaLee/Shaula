@@ -35,6 +35,6 @@ export const nav = [
   { href: "/", label: "홈" },
   { href: "/case", label: "만드는 것들" },
   { href: "/try", label: "업무 체험" },
-  { href: "/education", label: "쉽게 풀어보기" },
+  { href: "/education", label: "AI 교육" },
   { href: "/about", label: "소개" },
 ] as const;
