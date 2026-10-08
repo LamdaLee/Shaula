@@ -1,0 +1,127 @@
+.header {
+  padding: clamp(2rem, 5vw, 3rem) 0 1rem;
+}
+
+.title {
+  font-size: clamp(1.55rem, 3.5vw, 2.2rem);
+  margin: 0.75rem 0;
+  max-width: 28rem;
+}
+
+.lead {
+  max-width: 40rem;
+  color: var(--ink-soft);
+}
+
+.warn {
+  color: var(--mint-ink);
+  background: var(--mint);
+  border: 1px dashed color-mix(in srgb, var(--mint-ink) 30%, transparent);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  max-width: 40rem;
+  font-weight: 600;
+}
+
+.block {
+  padding: 1.75rem 0;
+  border-top: 1px dashed var(--line);
+}
+
+.block h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.3rem;
+}
+
+.rhythm {
+  background: color-mix(in srgb, white 70%, var(--paper));
+  border: 1px solid var(--line);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+}
+
+.sessions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.sessions li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.65rem 0.75rem;
+  background: color-mix(in srgb, white 75%, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.sessionNum {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--sky-ink);
+}
+
+.note {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.table th {
+  background: var(--paper-deep);
+}
+
+.placeholder {
+  background: var(--memo);
+  border: 1.5px dashed var(--memo-edge);
+  border-radius: 4px;
+  padding: 1.25rem;
+  min-height: 8rem;
+}
+
+.check {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.checkItem {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  min-height: var(--touch);
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  cursor: pointer;
+}
+
+.checkItem input {
+  margin-top: 0.35rem;
+  width: 1.1rem;
+  height: 1.1rem;
+}
