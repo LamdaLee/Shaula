@@ -1,39 +1,69 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HeroMotif } from "@/components/HeroMotif";
+import { BrandIcon, type BrandIconName } from "@/components/BrandIcon";
 import { MotifAccent } from "@/components/MotifAccent";
 import { Reveal } from "@/components/Reveal";
 import { StickyMoment } from "@/components/StickyMoment";
 import { site } from "@/lib/site";
 import styles from "./page.module.css";
 
+const mobileIcons: { name: BrandIconName; label: string }[] = [
+  { name: "learn", label: "배우기" },
+  { name: "app", label: "앱" },
+  { name: "path", label: "경로" },
+  { name: "verify", label: "검증" },
+  { name: "talk", label: "대화" },
+  { name: "pause", label: "멈춤" },
+];
+
 export default function HomePage() {
   return (
     <>
-      <section className={styles.hero} aria-labelledby="hero-brand">
-        <HeroMotif />
+      <section className={styles.hero} aria-labelledby="hero-title">
         <div className={`shell ${styles.heroInner}`}>
-          <Reveal tone="scale">
-            <h1 id="hero-brand" className={styles.heroBrand}>
-              {site.wordmark}
-            </h1>
-          </Reveal>
-          <Reveal tone="blur" delayMs={80}>
-            <p className={styles.heroLead}>{site.tagline}</p>
-          </Reveal>
-          <Reveal delayMs={140}>
-            <p className={styles.heroSupport}>{site.taglineSupport}</p>
-          </Reveal>
-          <Reveal delayMs={220}>
-            <div className="cta-row">
-              <Link className="btn" href="/case">
-                대표 앱 보기
-              </Link>
-              <Link className="btn btn--ghost" href="/try">
-                내 업무에 AI 적용해 보기
-              </Link>
+          <div className={styles.heroCopy}>
+            <Reveal tone="scale">
+              <h1 id="hero-title" className={styles.heroLead}>
+                {site.tagline}
+              </h1>
+            </Reveal>
+            <Reveal tone="blur" delayMs={80}>
+              <p className={styles.heroSupport}>{site.taglineSupport}</p>
+            </Reveal>
+            <Reveal delayMs={160}>
+              <div className={styles.heroActions}>
+                <Link className="btn" href="/try">
+                  AI 직접 써보기
+                </Link>
+                <Link className="btn btn--ghost" href="/case">
+                  대표 앱 보기
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal as="figure" tone="scale" delayMs={120} className={styles.heroArt}>
+            <div className={styles.heroFrame}>
+              <Image
+                src="/brand/hero-chaos-to-clarity.png"
+                alt="혼란에서 명확함으로 — 길을 찾는 사람"
+                fill
+                priority
+                sizes="(max-width: 820px) 100vw, 52vw"
+                className={styles.heroImage}
+                unoptimized
+              />
             </div>
           </Reveal>
+
+          <ul className={styles.iconGrid} aria-label="브랜드 아이콘">
+            {mobileIcons.map((item) => (
+              <li key={item.name} className={styles.iconCell}>
+                <BrandIcon name={item.name} size={56} className={styles.iconImg} />
+                <span className="sr-only">{item.label}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

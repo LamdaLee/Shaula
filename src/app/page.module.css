@@ -1,49 +1,148 @@
 .hero {
   position: relative;
-  /* Airier first viewport — room for open sky + full path below type */
-  min-height: min(88vh, 46rem);
-  display: flex;
-  align-items: flex-start;
-  padding: clamp(2.75rem, 8vw, 5rem) 0 clamp(8.5rem, 18vw, 12rem);
+  padding: clamp(1.75rem, 5vw, 3rem) 0 clamp(2.5rem, 7vw, 4.5rem);
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
 }
 
 .heroInner {
-  position: relative;
-  z-index: 1;
-  max-width: 34rem;
-  padding-top: 0.35rem;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: center;
 }
 
-.heroBrand {
-  font-family: var(--font-display);
-  /* Softer hierarchy — not oversized / cropped against art */
-  font-size: clamp(2.85rem, 9vw, 4.5rem);
-  line-height: 1.05;
-  margin: 0 0 0.85rem;
-  color: var(--ink);
-  letter-spacing: -0.015em;
-  text-transform: lowercase;
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 28rem;
 }
 
 .heroLead {
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 3.4vw, 2.15rem);
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-  max-width: 14ch;
-  margin: 0 0 0.85rem;
+  font-size: clamp(1.85rem, 4.6vw, 3rem);
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.95rem;
   color: var(--ink);
+  max-width: 12ch;
 }
 
 .heroSupport {
   max-width: 28rem;
   color: var(--ink-soft);
-  font-size: 1.05rem;
+  font-size: clamp(1.02rem, 1.8vw, 1.12rem);
   font-weight: 500;
   line-height: 1.65;
-  margin-bottom: 1.65rem;
+  margin: 0 0 1.5rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.heroArt {
+  margin: 0;
+  width: 100%;
+}
+
+.heroFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: calc(var(--radius-lg) + 0.35rem);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--lilac) 18%, white);
+  border: 1.5px solid color-mix(in srgb, var(--lilac) 35%, transparent);
+  box-shadow:
+    0 18px 40px -28px color-mix(in srgb, var(--violet) 55%, transparent),
+    0 2px 0 color-mix(in srgb, white 70%, transparent) inset;
+  animation: frameIn 900ms var(--ease-out) both;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 72% 45%;
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
+.iconCell {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 1.15rem;
+  background: color-mix(in srgb, var(--lilac) 16%, white);
+  border: 1.5px solid color-mix(in srgb, var(--lilac) 32%, transparent);
+  padding: 0.65rem;
+}
+
+.iconImg {
+  width: min(3.5rem, 70%);
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 820px) {
+  .hero {
+    min-height: min(72vh, 40rem);
+    display: flex;
+    align-items: center;
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+    width: 100%;
+  }
+
+  .heroArt {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .heroCopy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .iconGrid {
+    display: none;
+  }
+
+  .heroFrame {
+    aspect-ratio: 5 / 4;
+    min-height: 22rem;
+  }
+
+  .heroImage {
+    object-position: 68% 42%;
+  }
+}
+
+@keyframes frameIn {
+  from {
+    opacity: 0.55;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroFrame {
+    animation: none;
+  }
 }
 
 .band {
@@ -207,29 +306,4 @@
 .contactMail:hover {
   color: var(--ink);
   transform: translateY(-2px);
-}
-
-@media (max-width: 820px) {
-  .hero {
-    align-items: flex-start;
-    min-height: min(90vh, 44rem);
-    /* Type in open sky; leave lower band for path/stars — no CTA overlap */
-    padding: clamp(2.25rem, 7vw, 3.25rem) 0 clamp(10rem, 38vw, 14rem);
-  }
-
-  .heroInner {
-    max-width: 100%;
-  }
-
-  .heroLead {
-    max-width: 16ch;
-  }
-
-  .heroSupport {
-    margin-bottom: 1.35rem;
-  }
-
-  .heroInner :global(.cta-row) {
-    gap: 0.65rem;
-  }
 }

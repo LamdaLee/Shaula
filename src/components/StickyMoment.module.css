@@ -6,8 +6,10 @@
 
 .sticky {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  /* Sit below the persistent header so scroll craft never covers it */
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  z-index: 1;
   display: grid;
   place-content: center;
   text-align: center;

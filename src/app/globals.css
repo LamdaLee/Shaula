@@ -205,8 +205,8 @@ p {
   font-size: 0.98rem;
   text-decoration: none;
   border-radius: 999px;
-  border: 1.5px solid var(--ink);
-  background: var(--ink);
+  border: 1.5px solid var(--violet);
+  background: var(--violet);
   color: #fff;
   cursor: pointer;
   transition:
@@ -215,16 +215,16 @@ p {
     color 180ms var(--ease),
     box-shadow 200ms var(--ease),
     border-color 180ms var(--ease);
-  box-shadow: 0 0 0 0 transparent;
+  box-shadow: 0 8px 18px -14px color-mix(in srgb, var(--violet) 70%, transparent);
 }
 
 .btn:hover {
-  background: var(--violet);
-  border-color: var(--violet);
+  background: color-mix(in srgb, var(--violet) 88%, var(--ink));
+  border-color: color-mix(in srgb, var(--violet) 88%, var(--ink));
   color: #fff;
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px -14px color-mix(in srgb, var(--violet) 65%, transparent);
+  box-shadow: 0 12px 24px -14px color-mix(in srgb, var(--violet) 70%, transparent);
 }
 
 .btn:active {
