@@ -23,6 +23,11 @@ with sync_playwright() as p:
     page.get_by_text('만드는 과정 보기',exact=True).click()
     page.evaluate('window.scrollTo(0, 0)')
     page.screenshot(path=str(OUT/f'home-{width}.png'),full_page=True)
+   if path=='/case':
+    page.get_by_role('link',name='별이음 소개 읽기',exact=True).click()
+    expect(page.locator('#byeolieum')).to_be_visible()
+    expect(page).to_have_url(BASE+'/case#byeolieum')
+    expect(page.get_by_role('heading',name='하루 한 줄 배움 기록',exact=True)).to_be_visible()
    if path=='/about':
     expect(page.get_by_role('heading',name='기술이 일상의 전제가 될 때')).to_be_visible()
     page.screenshot(path=str(OUT/f'about-{width}.png'),full_page=True)

@@ -36,7 +36,7 @@ export default function HomePage() {
         <p className="section__eyebrow">직접 만들고, 설명하고, 확인합니다</p>
         <h2 id="work-title" className="section__title">지금 하고 있는 일</h2>
         <dl className={styles.workList}>
-          <div><dt>만들기</dt><dd>Pause &amp; Ponder와 별이음을 직접 만들고 개선합니다.</dd></div>
+          <div><dt>만들기</dt><dd><Link href="/case#pause-ponder">Pause &amp; Ponder</Link>와 <Link href="/case#byeolieum">별이음</Link>을 직접 만들고 개선합니다.</dd></div>
           <div><dt>설명하기</dt><dd>케이크 만들기처럼 익숙한 경험으로 프로그래밍을 풀어봅니다.</dd></div>
           <div><dt>확인하기</dt><dd>AI가 제안한 기능을 직접 사용하고, 필요한 방향으로 고칩니다.</dd></div>
         </dl>

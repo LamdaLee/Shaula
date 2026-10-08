@@ -83,8 +83,8 @@ export function ProjectCards() {
             </dd>
           </dl>
           <div className="cta-row">
-            <Link className="btn btn--ghost" href="/case/byeolieum">
-              만들어 가는 과정 보기
+            <Link className="btn btn--ghost" href="/case#byeolieum">
+              별이음 소개 읽기
             </Link>
             <a
               href={site.byeolieum.demo}

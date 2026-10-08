@@ -239,3 +239,13 @@
 .shot figure { margin: 0; }
 .shot summary { padding: .75rem; color: var(--violet); }
 .split { grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+
+.ideaJourney { display: grid; gap: 1rem; margin: 1.5rem 0; padding: 0; list-style: none; }
+.ideaJourney > li { min-width: 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, white 80%, var(--paper)); }
+.ideaJourney > li:nth-child(2) { background: var(--sky); }
+.ideaJourney h3 { margin: .75rem 0; font-size: 1.15rem; }
+.ideaJourney p { margin-bottom: 0; color: var(--ink-soft); font-size: .95rem; }
+.journeyLabel { font-size: .85rem; font-weight: 650; color: var(--sky-ink); }
+.thoughts { display: grid; gap: .5rem; padding: 0; list-style: none; }
+.thoughts li { padding: .65rem .75rem; border-radius: .5rem; background: var(--paper-deep); font-size: .95rem; }
+@media (min-width: 900px) { .ideaJourney { grid-template-columns: repeat(3, 1fr); } }

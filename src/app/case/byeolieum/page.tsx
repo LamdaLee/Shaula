@@ -28,8 +28,9 @@ export default function ByeolieumCase() {
           작은 실험으로 이어가는 도구를 만들고 있습니다.
         </p>
         <div className="cta-row">
+          <Link className="btn" href="#byeolieum-story">소개부터 살펴보기</Link>
           <a
-            className="btn"
+            className="btn btn--ghost"
             href={site.byeolieum.demo}
             target="_blank"
             rel="noopener noreferrer"
@@ -49,7 +50,7 @@ export default function ByeolieumCase() {
           </Link>
         </div>
       </header>
-      <section className={styles.block}>
+      <section id="byeolieum-story" className={styles.block}>
         <h2 className={styles.h2}>왜 ‘별이음’일까?</h2>
         <p className={styles.body}>
           별 하나만 보면 점이지만, 서로 이어 보면 별자리가 됩니다. 떠오르는

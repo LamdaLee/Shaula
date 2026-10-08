@@ -59,6 +59,38 @@ export default function CasePage() {
         </p>
         <ProjectCards />
       </header>
+      <section id="byeolieum" className={styles.block} aria-labelledby="byeolieum-title">
+        <p className="section__eyebrow">별이음 · 생각에서 아이디어로</p>
+        <h2 id="byeolieum-title" className={styles.h2}>흩어진 생각이, 하나의 아이디어가 되기까지</h2>
+        <p className={styles.body}>떠오른 생각을 바로 정리하거나 평가하기는 어렵습니다. 일단 카드로 남겨두고, 서로 관련 있는 생각을 연결하며 다음에 해볼 일을 찾고 싶었습니다. 별 하나를 이어 별자리를 만들듯, 생각 사이의 맥락을 찾는 도구입니다.</p>
+        <p className={styles.note}>아래는 카드에서 아이디어와 제작 요청문으로 이어지는 설명용 예시입니다.</p>
+        <ol className={styles.ideaJourney} aria-label="별이음 사용 흐름 예시">
+          <li>
+            <span className={styles.journeyLabel}>01 · 생각을 남기기</span>
+            <h3>아직 정리되지 않은 세 조각</h3>
+            <ul className={styles.thoughts}>
+              <li>배운 내용을 금방 잊는다</li>
+              <li>긴 회고를 쓰기는 부담스럽다</li>
+              <li>하루 한 줄은 남길 수 있을 것 같다</li>
+            </ul>
+          </li>
+          <li>
+            <span className={styles.journeyLabel}>02 · 연결하고 구체화하기</span>
+            <h3>하루 한 줄 배움 기록</h3>
+            <p>‘학습 기록’이라는 맥락으로 카드를 잇고, 짧게 남기고 다시 돌아보는 도구를 떠올립니다. 직접 구체화하거나 AI의 제안을 참고해 고를 수 있습니다.</p>
+          </li>
+          <li>
+            <span className={styles.journeyLabel}>03 · 만들어볼 요청으로</span>
+            <h3>작은 기능과 확인 기준</h3>
+            <p>“오늘 배운 것을 한 줄로 적고 다시 볼 수 있는 웹페이지를 만들어줘. 빈 기록은 저장되지 않게 하고, 새로고침 후에도 남는지 확인할 예시를 적어줘.”</p>
+          </li>
+        </ol>
+        <p className={styles.body}>AI의 제안이 곧 정답은 아닙니다. 연결 근거가 내 생각과 맞는지 고르고, 만들어볼 기능과 직접 확인할 기준을 정합니다.</p>
+        <div className="cta-row">
+          <Link className="btn btn--ghost" href="/case/byeolieum">배경과 제작 기록 더 읽기</Link>
+          <a href={site.byeolieum.demo} target="_blank" rel="noopener noreferrer">원할 때 앱에서 해보기 ↗</a>
+        </div>
+      </section>
       <header id="pause-ponder" className="page-header">
         <Reveal tone="scale">
           <div className={styles.badges}>
