@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 import styles from "./case.module.css";
 
@@ -43,72 +44,89 @@ const shots = [
 export default function CasePage() {
   return (
     <div className="shell">
-      <header className={styles.header}>
-        <div className={styles.badges}>
-          <span className="badge">직접 만든 웹앱</span>
-          <span className="badge badge--sky">선택적 AI API</span>
-          <span className="badge badge--mint">Next.js + Supabase</span>
-        </div>
-        <h1 className={styles.title}>
-          {site.pausePonder.name}
-          <span className={styles.titleKo}> ({site.pausePonder.nameKo})</span>
-        </h1>
-        <p className={styles.lead}>
-          Pause&Ponder는 이람다가 만든 개인 보조 웹앱입니다. 생각·할 일·사고
-          싶은 것을 한곳에 두고, 충동 구매는 잠깐 멈추며 감정과 소비를
-          되돌아봅니다.
-        </p>
-        <div className="cta-row">
-          <a
-            className="btn"
-            href={site.pausePonder.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            앱 열기
-          </a>
-          <a
-            className="btn btn--ghost"
-            href={site.pausePonder.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-        </div>
+      <header className="page-header">
+        <Reveal tone="scale">
+          <div className={styles.badges}>
+            <span className="badge">직접 만든 웹앱</span>
+            <span className="badge badge--sky">선택적 AI API</span>
+            <span className="badge badge--mint">Next.js + Supabase</span>
+          </div>
+          <h1 className="page-title">
+            {site.pausePonder.name}
+            <span className={styles.titleKo}> {site.pausePonder.nameKo}</span>
+          </h1>
+          <p className={styles.punch}>{site.pausePonder.punch}</p>
+          <p className="page-lead">
+            이람다가 만든 개인 보조 웹앱입니다. 생각·할 일·사고 싶은 것을 한곳에
+            두고, 충동 구매는 잠깐 멈추며 감정과 소비를 되돌아봅니다.
+          </p>
+          <div className="cta-row">
+            <a
+              className="btn"
+              href={site.pausePonder.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              앱 열기
+            </a>
+            <a
+              className="btn btn--ghost"
+              href={site.pausePonder.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </Reveal>
       </header>
 
-      <section className={styles.block} aria-labelledby="overview">
-        <h2 id="overview">1. 한눈에 보기</h2>
-        <ul className={styles.facts}>
-          <li>
-            <strong>누구를 위해:</strong> 충동 소비·파편 메모로 정리 부담을
-            느끼는 개인
-          </li>
-          <li>
-            <strong>어떤 상황:</strong> 사고 싶다/샀다/애매한 금전 문장, 감정·할
-            일을 한꺼번에 적을 때
-          </li>
-          <li>
-            <strong>한 문장:</strong> {site.pausePonder.summary}
-          </li>
-        </ul>
-      </section>
+      <Reveal as="section" className={styles.block} delayMs={40}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>01</span>
+          한눈에 보기
+        </h2>
+        <dl className={styles.defs}>
+          <div>
+            <dt>누구를 위해</dt>
+            <dd>충동 소비·파편 메모로 정리 부담을 느끼는 개인</dd>
+          </div>
+          <div>
+            <dt>어떤 상황</dt>
+            <dd>
+              사고 싶다 / 샀다 / 애매한 금전 문장, 감정·할 일을 한꺼번에 적을 때
+            </dd>
+          </div>
+          <div>
+            <dt>한 문장</dt>
+            <dd>{site.pausePonder.summary}</dd>
+          </div>
+        </dl>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="why">
-        <h2 id="why">2. 만든 계기</h2>
-        <p>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>02</span>
+          만든 계기
+        </h2>
+        <p className={styles.body}>
           규격화된 기록 양식의 피로와 감정 동요가 충동 소비·번아웃으로 이어지는
-          불편에서 출발했습니다. 예:{" "}
+          불편에서 출발했습니다.
+        </p>
+        <p className={styles.body}>
+          예:{" "}
           <code className={styles.inlineCode}>21000원 우산 구매</code>와{" "}
-          <code className={styles.inlineCode}>사고 싶다</code>/
+          <code className={styles.inlineCode}>사고 싶다</code> /{" "}
           <code className={styles.inlineCode}>구매?</code>를 구분하고, 카드
           대금과 물품 구매가 이중으로 합산되지 않게 합니다.
         </p>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="features">
-        <h2 id="features">3. 기능 선택</h2>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>03</span>
+          기능 선택
+        </h2>
         <div className={styles.tableWrap}>
           <table className={styles.table}>
             <thead>
@@ -140,24 +158,25 @@ export default function CasePage() {
               </tr>
               <tr>
                 <td>루틴 + Android</td>
-                <td>
-                  일상 알림·위젯 동반 — v0.3이며 운영 반영은 문서상 미완
-                </td>
+                <td>일상 알림·위젯 동반 — v0.3이며 운영 반영은 문서상 미완</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="shots">
-        <h2 id="shots">화면 캡처</h2>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>화면</span>
+          캡처
+        </h2>
         <p className={styles.note}>
           제작자가 제공한 실제 화면입니다. 로그인한 개인 이메일 영역은 공개
           포트폴리오용으로 잘라 두었습니다.
         </p>
         <div className={styles.shots}>
-          {shots.map((shot) => (
-            <figure key={shot.src} className={styles.shot}>
+          {shots.map((shot, i) => (
+            <Reveal as="figure" key={shot.src} delayMs={i * 80} className={styles.shot}>
               <Image
                 src={shot.src}
                 alt={shot.alt}
@@ -169,45 +188,63 @@ export default function CasePage() {
               <figcaption>
                 <strong>{shot.title}</strong> — {shot.caption}
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="flow">
-        <h2 id="flow">4. 작동 흐름</h2>
-        <p>
-          자유 메모 입력 → 규칙(+선택 AI)으로 파편 분류·금전 후보 → 원문 보존 +
-          가계부/보류/할 일 연결 → 사용자가 후보 확인·저장·숨고르기·월 집계 조회
-        </p>
-      </section>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>04</span>
+          작동 흐름
+        </h2>
+        <ol className={styles.flow}>
+          <li>자유 메모 입력</li>
+          <li>규칙(+선택 AI)으로 파편 분류·금전 후보</li>
+          <li>원문 보존 + 가계부/보류/할 일 연결</li>
+          <li>사용자가 후보 확인·저장·숨고르기·월 집계 조회</li>
+        </ol>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="roles">
-        <h2 id="roles">5. AI와 사람의 역할</h2>
-        <ul className={styles.facts}>
-          <li>
-            <strong>AI가 제안:</strong> 돈·생각·감정·일·숨고르기 분류와 원화
-            금액/거래 유형 <em>후보</em>
-          </li>
-          <li>
-            <strong>사람이 확인:</strong> 확정 지출·보류·수정. 합계·납부일·기간
-            계산은 코드/DB
-          </li>
-        </ul>
-      </section>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>05</span>
+          AI와 사람의 역할
+        </h2>
+        <div className={styles.split}>
+          <div className={styles.splitCard}>
+            <h3>AI가 제안</h3>
+            <p>
+              돈·생각·감정·일·숨고르기 분류와 원화 금액/거래 유형{" "}
+              <em>후보</em>
+            </p>
+          </div>
+          <div className={styles.splitCard}>
+            <h3>사람이 확인</h3>
+            <p>
+              확정 지출·보류·수정. 합계·납부일·기간 계산은 코드/DB
+            </p>
+          </div>
+        </div>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="try-app">
-        <h2 id="try-app">6. 직접 체험</h2>
-        <p>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>06</span>
+          직접 체험
+        </h2>
+        <p className={styles.body}>
           예시 입력:{" "}
           <code className={styles.inlineCode}>21000원 우산 구매</code> /{" "}
           <code className={styles.inlineCode}>
             우산 사고 싶다. 오늘은 조금 불안하다. 보고서도 써야 한다.
           </code>
         </p>
-        <p>
+        <p className={styles.body}>
           로그인 후 마음함에 적고 저장 → 분류 확인 → 필요 시 가계부·잠깐
-          두기·숨고르기.{" "}
+          두기·숨고르기.
+        </p>
+        <p className={styles.body}>
           <a
             href={site.pausePonder.demo}
             target="_blank"
@@ -220,11 +257,14 @@ export default function CasePage() {
           AI 모드가 켜져 있으면 메모 본문이 OpenAI로 전달될 수 있습니다. API
           키는 서버 전용이며 프론트에 두지 않습니다.
         </p>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="verify">
-        <h2 id="verify">7. 검증과 개선</h2>
-        <ul className={styles.facts}>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>07</span>
+          검증과 개선
+        </h2>
+        <ul className={styles.bullets}>
           <li>
             운영에 v0.3 루틴 SQL·Android는 문서상 미반영. 일부 Realtime·실기기
             알림 등은 미검증.
@@ -237,17 +277,20 @@ export default function CasePage() {
             다음 방향(제품 문서): 감정 타임라인, 보류함 고도화, AI 추출 고도화
           </li>
         </ul>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="connect">
-        <h2 id="connect">8. 업무로 연결</h2>
-        <ol className={styles.facts}>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>
+          <span className={styles.step}>08</span>
+          업무로 연결
+        </h2>
+        <ol className={styles.questions}>
           <li>비슷한 막힘(충동·파편 메모)이 있나요?</li>
           <li>그때 무엇을 적거나 넣나요?</li>
           <li>AI가 나눈 분류·금액에서 무엇을 꼭 확인하나요?</li>
           <li>확인 뒤 다음 행동(보류·기록·숨고르기)은?</li>
         </ol>
-      </section>
+      </Reveal>
 
       <div className={`cta-row ${styles.footerCta}`}>
         <Link className="btn" href="/try">

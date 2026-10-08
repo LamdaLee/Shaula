@@ -1,45 +1,55 @@
 :root {
-  /* Bright paper + ink — cool undertone (not cream/terracotta bias) */
-  --paper: #f4f7fb;
-  --paper-deep: #e8eef6;
-  --ink: #1a2233;
-  --ink-soft: #3d4759;
-  --ink-muted: #5c677a;
-  --line: #c5d0e0;
-  --memo: #fff8d6;
-  --memo-edge: #e8d98a;
-  --mint: #dff3ea;
-  --mint-ink: #1f6b4f;
-  --sky: #d6e8ff;
-  --sky-ink: #245a9a;
-  --star: #2a6fd6;
-  --focus: #1f5fbf;
+  /* Official Shaula brand — soft lilac UI */
+  --paper: #f4f1ff;
+  --paper-deep: #ebe6ff;
+  --ink: #25234b;
+  --ink-soft: #3d3a66;
+  --ink-muted: #6b6890;
+  --line: #d5cff0;
+  --lilac: #a78bfa;
+  --violet: #6d5ce7;
+  --sky: #e4ecff;
+  --sky-ink: #4f8ef7;
+  --star: #4f8ef7;
+  --memo: #efe9ff;
+  --memo-edge: #c4b5fd;
+  --mint: #e8e4ff;
+  --mint-ink: #6d5ce7;
+  --focus: #6d5ce7;
   --danger: #9b2c2c;
-  --ok: #1f6b4f;
+  --ok: #3d7a5c;
 
   --bg: var(--paper);
   --fg: var(--ink);
   --fg-muted: var(--ink-muted);
-  --accent: var(--sky-ink);
-  --accent-soft: var(--sky);
+  --accent: var(--violet);
+  --accent-soft: color-mix(in srgb, var(--lilac) 35%, white);
 
-  --font-display: var(--font-gaegu), "Gaegu", "Nanum Pen Script", cursive;
-  --font-body: var(--font-noto), "Noto Sans KR", sans-serif;
+  /* Pretendard first (CDN); IBM Plex Sans KR as next/font fallback */
+  --font-sans: "Pretendard Variable", Pretendard, var(--font-sans-face),
+    "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-hand: var(--font-sans);
+
+  --header-h: 4.25rem;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
   --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4.5rem;
+  --space-6: 2.25rem;
+  --space-7: 3.25rem;
+  --space-8: 5rem;
 
-  --measure: 40rem;
-  --shell: 68rem;
-  --radius: 0.25rem;
+  --measure: 38rem;
+  --shell: 70rem;
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
   --touch: 2.75rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *,
@@ -69,16 +79,19 @@ html {
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100dvh;
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   color: var(--fg);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Soft paper grain + cool wash */
+/* Soft lilac atmosphere */
 body::before {
   content: "";
   position: fixed;
@@ -86,9 +99,10 @@ body::before {
   pointer-events: none;
   z-index: -2;
   background:
-    radial-gradient(ellipse 70% 45% at 90% -5%, color-mix(in srgb, var(--sky) 55%, transparent), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 0% 30%, color-mix(in srgb, var(--mint) 45%, transparent), transparent 55%),
-    linear-gradient(180deg, #f7fafd 0%, var(--paper) 40%, #eef3f9 100%);
+    radial-gradient(ellipse 60% 40% at 88% -6%, color-mix(in srgb, var(--lilac) 28%, transparent), transparent 58%),
+    radial-gradient(ellipse 50% 36% at 4% 30%, color-mix(in srgb, var(--sky-ink) 14%, transparent), transparent 55%),
+    radial-gradient(ellipse 48% 32% at 70% 100%, color-mix(in srgb, var(--violet) 12%, transparent), transparent 60%),
+    linear-gradient(180deg, #faf8ff 0%, var(--paper) 42%, #efeaff 100%);
 }
 
 body::after {
@@ -97,14 +111,15 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
 }
 
 a {
   color: var(--accent);
   text-underline-offset: 0.18em;
+  transition: color 160ms var(--ease);
 }
 
 a:hover {
@@ -124,14 +139,17 @@ img {
 h1,
 h2,
 h3 {
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  line-height: 1.3;
+  letter-spacing: -0.025em;
   font-weight: 700;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 p {
   margin: 0 0 1rem;
+  text-wrap: pretty;
 }
 
 .shell {
@@ -159,24 +177,25 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--ink-soft);
-  background: var(--memo);
-  border: 1px dashed var(--memo-edge);
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--lilac) 22%, white);
+  border: 1px solid color-mix(in srgb, var(--lilac) 45%, transparent);
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
 }
 
 .badge--mint {
-  background: var(--mint);
-  border-color: color-mix(in srgb, var(--mint-ink) 25%, transparent);
-  color: var(--mint-ink);
+  background: color-mix(in srgb, var(--violet) 14%, white);
+  border-color: color-mix(in srgb, var(--violet) 30%, transparent);
+  color: var(--violet);
 }
 
 .badge--sky {
-  background: var(--sky);
-  border-color: color-mix(in srgb, var(--sky-ink) 25%, transparent);
+  background: color-mix(in srgb, var(--sky-ink) 14%, white);
+  border-color: color-mix(in srgb, var(--sky-ink) 28%, transparent);
   color: var(--sky-ink);
 }
 
@@ -186,52 +205,72 @@ p {
   justify-content: center;
   gap: 0.4rem;
   min-height: var(--touch);
-  padding: 0.65rem 1.15rem;
+  padding: 0.7rem 1.35rem;
   font: inherit;
   font-weight: 600;
+  font-size: 0.98rem;
   text-decoration: none;
-  border-radius: var(--radius);
-  border: 1.5px solid var(--ink);
-  background: var(--ink);
+  border-radius: 999px;
+  border: 1.5px solid var(--violet);
+  background: var(--violet);
   color: #fff;
   cursor: pointer;
-  transition: transform 180ms var(--ease), background 180ms var(--ease), color 180ms var(--ease);
+  transition:
+    transform 200ms var(--ease-out),
+    background 180ms var(--ease),
+    color 180ms var(--ease),
+    box-shadow 200ms var(--ease),
+    border-color 180ms var(--ease);
+  box-shadow: 0 8px 18px -14px color-mix(in srgb, var(--violet) 70%, transparent);
 }
 
 .btn:hover {
-  background: var(--sky-ink);
-  border-color: var(--sky-ink);
+  background: color-mix(in srgb, var(--violet) 88%, var(--ink));
+  border-color: color-mix(in srgb, var(--violet) 88%, var(--ink));
   color: #fff;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -14px color-mix(in srgb, var(--violet) 70%, transparent);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 35%, white);
 }
 
 .btn--ghost {
-  background: transparent;
+  background: color-mix(in srgb, white 70%, transparent);
   color: var(--ink);
+  border-color: color-mix(in srgb, var(--ink) 28%, transparent);
 }
 
 .btn--ghost:hover {
-  background: var(--sky);
+  background: color-mix(in srgb, var(--lilac) 22%, white);
   color: var(--ink);
-  border-color: var(--ink);
+  border-color: var(--violet);
 }
 
 .btn--memo {
-  background: var(--memo);
+  background: color-mix(in srgb, var(--lilac) 28%, white);
   color: var(--ink);
-  border-style: dashed;
-  border-color: var(--memo-edge);
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--lilac) 55%, transparent);
 }
 
 .btn--memo:hover {
-  background: #fff3b0;
+  background: color-mix(in srgb, var(--lilac) 42%, white);
   color: var(--ink);
-  border-color: var(--ink);
+  border-color: var(--violet);
 }
 
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .cta-row {
@@ -246,33 +285,69 @@ p {
 }
 
 .section + .section {
-  border-top: 1px dashed color-mix(in srgb, var(--line) 80%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
 }
 
 .section__eyebrow {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  color: var(--sky-ink);
-  margin: 0 0 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--violet);
+  margin: 0 0 0.55rem;
 }
 
 .section__title {
-  font-size: clamp(1.6rem, 3.5vw, 2.15rem);
+  font-size: clamp(1.65rem, 3.4vw, 2.35rem);
   margin: 0 0 0.75rem;
+  max-width: 18ch;
+  line-height: 1.32;
+  font-weight: 700;
 }
 
 .section__lead {
   color: var(--ink-soft);
-  max-width: 36rem;
-  margin-bottom: 1.5rem;
+  max-width: 34rem;
+  margin-bottom: 1.4rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.section__punch {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.65rem;
+  max-width: 28ch;
+}
+
+.section__icon {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.85rem;
+}
+
+.section__motif {
+  display: block;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 0.9rem;
+  object-fit: contain;
 }
 
 .memo {
-  background: var(--memo);
-  border: 1.5px dashed var(--memo-edge);
-  border-radius: 2px 12px 12px 2px;
+  background: color-mix(in srgb, var(--lilac) 16%, white);
+  border: 1.5px solid color-mix(in srgb, var(--lilac) 40%, transparent);
+  border-radius: var(--radius-lg);
   padding: 1rem 1.15rem;
-  box-shadow: 2px 3px 0 color-mix(in srgb, var(--memo-edge) 45%, transparent);
+  box-shadow: 0 10px 28px -22px color-mix(in srgb, var(--violet) 55%, transparent);
   position: relative;
 }
 
@@ -283,27 +358,30 @@ p {
   left: 1rem;
   width: 2.5rem;
   height: 0.55rem;
-  background: color-mix(in srgb, var(--sky) 70%, white);
+  background: color-mix(in srgb, var(--sky-ink) 35%, white);
+  border-radius: 999px;
   transform: rotate(-2deg);
   opacity: 0.85;
 }
 
-.star {
-  position: absolute;
-  width: 0.55rem;
-  height: 0.55rem;
-  background: var(--star);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  opacity: 0.7;
-  pointer-events: none;
+.page-header {
+  padding: clamp(2.25rem, 6vw, 4rem) 0 1.75rem;
 }
 
-.line-doodle {
-  stroke: color-mix(in srgb, var(--sky-ink) 35%, var(--line));
-  stroke-width: 1.5;
-  fill: none;
-  stroke-linecap: round;
-  stroke-dasharray: 3 6;
+.page-title {
+  font-size: clamp(1.85rem, 4.4vw, 2.75rem);
+  margin: 0 0 0.75rem;
+  max-width: 14ch;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.page-lead {
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 500;
+  margin-bottom: 1.35rem;
 }
 
 .skip-link {
@@ -319,47 +397,6 @@ p {
 
 .skip-link:focus {
   top: 1rem;
-}
-
-@keyframes rise-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.6rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes draw-dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
-}
-
-.anim-rise {
-  animation: rise-in 560ms var(--ease) both;
-}
-
-.anim-rise-delay {
-  animation: rise-in 640ms var(--ease) 120ms both;
-}
-
-.anim-twinkle {
-  animation: twinkle 3.2s ease-in-out infinite;
 }
 
 @media (max-width: 640px) {

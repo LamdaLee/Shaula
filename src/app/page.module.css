@@ -1,112 +1,357 @@
 .hero {
+  --hero-pad-y: clamp(1rem, 2.8vh, 1.75rem);
   position: relative;
-  padding: clamp(2.5rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
-  overflow: hidden;
+  padding: var(--hero-pad-y) 0;
+  /* Decorative clip only — never size so CTAs/key art fall outside */
+  overflow: clip;
 }
 
-.heroBrand {
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 12vw, 5.5rem);
-  line-height: 0.95;
-  margin: 0 0 0.75rem;
-  color: var(--ink);
-  letter-spacing: -0.02em;
+.heroInner {
+  display: grid;
+  gap: clamp(1.1rem, 3vw, 1.75rem);
+  align-items: center;
 }
 
-.heroPerson {
-  font-size: 1.05rem;
-  color: var(--ink-soft);
-  margin: 0 0 1.25rem;
-  font-weight: 500;
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 28rem;
 }
 
 .heroLead {
-  font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.55rem);
   font-weight: 700;
-  max-width: 28rem;
-  margin: 0 0 0.85rem;
+  line-height: 1.32;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  max-width: 12ch;
 }
 
 .heroSupport {
-  max-width: 34rem;
+  max-width: 28rem;
   color: var(--ink-soft);
-  margin-bottom: 1.75rem;
+  font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0 0 1.15rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
 }
 
 .heroArt {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.heroSvg {
-  position: absolute;
-  right: -2%;
-  top: 10%;
-  width: min(42vw, 22rem);
-  height: auto;
-  opacity: 0.85;
-}
-
-@media (max-width: 720px) {
-  .heroSvg {
-    opacity: 0.35;
-    width: 55vw;
-    top: 0;
-  }
-}
-
-.panel {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 760px) {
-  .panel {
-    grid-template-columns: 1.2fr 1fr;
-    align-items: start;
-  }
-}
-
-.panelBody h2 {
-  margin-top: 0;
-}
-
-.bgGrid {
-  display: grid;
-  gap: 0.85rem;
-  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
   margin: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.heroFrame {
+  position: relative;
+  width: 100%;
+  /* Near source ~3:1 banner — keep path/nodes readable, not a tall useless crop */
+  aspect-ratio: 2.2 / 1;
+  max-height: min(14.5rem, calc(100dvh - var(--header-h) - 15rem));
+  border-radius: calc(var(--radius-lg) + 0.2rem);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--lilac) 18%, white);
+  border: 1.5px solid color-mix(in srgb, var(--lilac) 35%, transparent);
+  box-shadow:
+    0 18px 40px -28px color-mix(in srgb, var(--violet) 55%, transparent),
+    0 2px 0 color-mix(in srgb, white 70%, transparent) inset;
+  animation: frameIn 900ms var(--ease-out) both;
+  margin-inline: auto;
+}
+
+.heroImage {
+  object-fit: cover;
+  /* Bias to the right path/node cluster (banner is left-empty) */
+  object-position: 78% 42%;
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0;
+}
+
+.iconCell {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--lilac) 16%, white);
+  border: 1.5px solid color-mix(in srgb, var(--lilac) 32%, transparent);
+  padding: 0.5rem;
+}
+
+.iconImg {
+  width: min(2.75rem, 68%);
+  height: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 820px) {
+  .hero {
+    --hero-pad-y: clamp(0.85rem, 2.2vh, 1.75rem);
+    display: flex;
+    align-items: center;
+    /* Exactly fill under sticky header — no StickyMoment peek on first paint */
+    min-height: calc(100dvh - var(--header-h));
+    max-height: calc(100dvh - var(--header-h));
+    box-sizing: border-box;
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(1.35rem, 3.5vw, 2.75rem);
+    width: 100%;
+    align-items: center;
+  }
+
+  .heroArt {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .heroCopy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .iconGrid {
+    display: none;
+  }
+
+  .heroFrame {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    max-height: min(22rem, calc(100dvh - var(--header-h) - 2 * var(--hero-pad-y) - 0.5rem));
+    /* When max-height wins, shrink width to keep ratio (no vertical crop of frame) */
+    max-width: min(100%, calc(min(22rem, calc(100dvh - var(--header-h) - 2 * var(--hero-pad-y) - 0.5rem)) * 16 / 10));
+    min-height: 0;
+  }
+
+  .heroImage {
+    object-position: 72% 40%;
+  }
+}
+
+@media (max-width: 819px) {
+  .hero {
+    /* First paint: copy + CTAs + art; icons can scroll */
+    padding-bottom: clamp(1rem, 3vh, 1.5rem);
+  }
+
+  .heroFrame {
+    /* Tall enough for path→star to read; still under first-screen budget */
+    aspect-ratio: 16 / 11;
+    max-height: min(14rem, calc(100dvh - var(--header-h) - 13.25rem));
+  }
+
+  .heroImage {
+    object-fit: cover;
+    /* Path + figure + star cluster — avoid empty left gradient crop */
+    object-position: 78% 38%;
+  }
+
+  .iconGrid {
+    /* Secondary — below first-screen priority content */
+    margin-top: 0.35rem;
+  }
+}
+
+@keyframes frameIn {
+  from {
+    opacity: 0.55;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroFrame {
+    animation: none;
+  }
+}
+
+.band {
+  background: color-mix(in srgb, white 55%, var(--paper));
+}
+
+.eduBand {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--lilac) 18%, transparent),
+      transparent 70%
+    );
+}
+
+.cueRow {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.45rem;
+}
+
+.cueRow .section__motif,
+.cueRow :global(.section__motif) {
+  margin-bottom: 0;
+}
+
+.feature {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 800px) {
+  .feature {
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 2.5rem;
+  }
+}
+
+.featureCopy .section__title {
+  margin-top: 0.65rem;
+}
+
+.featureMemo {
+  margin-top: 0.5rem;
+}
+
+.memoHand {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.bgRail {
+  display: grid;
+  gap: 0;
+  margin: 0 0 1.5rem;
   padding: 0;
   list-style: none;
+  border-top: 1px solid var(--line);
 }
 
 .bgItem {
-  background: color-mix(in srgb, white 70%, var(--paper));
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
   font-weight: 600;
-  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.bgNum {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--violet);
+}
+
+.bakeNote {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 36rem;
+}
+
+.bakeSub {
+  display: block;
+  margin-top: 0.35rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  font-size: 0.98rem;
+}
+
+.textLink {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--violet);
+  border-bottom: 1.5px solid color-mix(in srgb, var(--violet) 35%, transparent);
+  transition: border-color 160ms var(--ease), color 160ms var(--ease);
+}
+
+.textLink:hover {
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 .contactBox {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.25rem 2rem;
   align-items: center;
   justify-content: space-between;
+  padding: 1.5rem 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactFrame {
+  position: absolute;
+  inset: -8% -4%;
+  pointer-events: none;
+  opacity: 0.55;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.contactBox > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contactIcon {
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.contactLead {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 500;
 }
 
 .contactMail {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--sky-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--violet);
   text-decoration: none;
+  transition: transform 200ms var(--ease-out), color 160ms var(--ease);
 }
 
 .contactMail:hover {
-  text-decoration: underline;
+  color: var(--ink);
+  transform: translateY(-2px);
 }

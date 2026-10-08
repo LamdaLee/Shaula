@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EducationActivity } from "@/components/EducationActivity";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 import styles from "./education.module.css";
 
@@ -63,48 +64,54 @@ const checklist = [
 export default function EducationPage() {
   return (
     <div className="shell">
-      <header className={styles.header}>
-        <span className="badge badge--mint">교육 제안 · 프로그램 설계</span>
-        <h1 className={styles.title}>
-          AI와 친해지기: 나의 인생을 담은 웹페이지 만들기
-        </h1>
-        <p className={styles.lead}>
-          코딩 경험이 적은 성인을 위한 <strong>10회 × 50분</strong> 프로젝트
-          수업 설계안입니다. 함께 문제를 풀고 구현합니다. (녹화 따라하기 아님)
-        </p>
-        <p className={styles.warn} role="note">
-          이 페이지는 교육 제안/프로그램 설계입니다. 운영 실적·후기·수료 수치는
-          없습니다.
-        </p>
+      <header className="page-header">
+        <Reveal tone="scale">
+          <span className="badge badge--mint">교육 제안 · 프로그램 설계</span>
+          <h1 className="page-title">AI와 친해지기</h1>
+          <p className={styles.punch}>
+            10회로,
+            <br />
+            내 이야기를 웹페이지에.
+          </p>
+          <p className="page-lead">
+            「나의 인생을 담은 웹페이지 만들기」— 코딩 경험이 적은 성인을 위한{" "}
+            <strong>10회 × 50분</strong> 프로젝트 수업 설계안입니다. 함께 문제를
+            풀고 구현합니다. (녹화 따라하기 아님)
+          </p>
+          <p className={styles.warn} role="note">
+            교육 제안/프로그램 설계입니다. 운영 실적·후기·수료 수치는 없습니다.
+          </p>
+        </Reveal>
       </header>
 
-      <section className={styles.block} aria-labelledby="goal">
-        <h2 id="goal">목표와 산출</h2>
-        <p>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>목표와 산출</h2>
+        <p className={styles.body}>
           자기소개·경험·강점·꿈·미래 계획과 개인 기능 하나를 담은 웹페이지를
           만듭니다. 웹페이지 틀·기능 시작 코드·AI 연결 틀을 사전 제공해 API
           설정이 수업 시간을 먹지 않게 하고, API 없는 대체 활동도 준비합니다.
         </p>
-        <p className={styles.rhythm}>
-          <strong>매회 50분 리듬:</strong> 5분 시작 질문 → 7분 함께 풀이 → 20분
-          제작 → 11분 검증·수정 → 7분 저장·회고
+        <p className={`memo ${styles.rhythm}`}>
+          <span className={styles.rhythmLabel}>매회 50분</span>
+          5분 시작 질문 → 7분 함께 풀이 → 20분 제작 → 11분 검증·수정 → 7분
+          저장·회고
         </p>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="flow">
-        <h2 id="flow">10회 흐름</h2>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>10회 흐름</h2>
         <ol className={styles.sessions}>
           {sessions.map((s, i) => (
-            <li key={s}>
-              <span className={styles.sessionNum}>{i + 1}회</span>
-              {s}
+            <li key={s} className={styles.session}>
+              <span className={styles.sessionNum}>{i + 1}</span>
+              <span>{s}</span>
             </li>
           ))}
         </ol>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="story">
-        <h2 id="story">샘플 스토리보드 — 1회차</h2>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>샘플 스토리보드 — 1회차</h2>
         <p className={styles.note}>
           설계용 예시입니다. 실제 수업 슬라이드·워크시트 공개본은{" "}
           <span className="badge">확인 필요</span>
@@ -129,10 +136,10 @@ export default function EducationPage() {
             </tbody>
           </table>
         </div>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="sample">
-        <h2 id="sample">예시 결과물</h2>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>예시 결과물</h2>
         <div className={styles.placeholder}>
           <span className="badge">예시(설계용)</span>
           <p>
@@ -140,16 +147,18 @@ export default function EducationPage() {
             오인하지 마세요.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="activity">
-        <h2 id="activity">직접 해보는 짧은 활동</h2>
-        <p>사실 vs 추측 — 2문항. 수업에서는 함께 더 깊게 갑니다.</p>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>직접 해보는 짧은 활동</h2>
+        <p className={styles.body}>
+          사실 vs 추측 — 2문항. 수업에서는 함께 더 깊게 갑니다.
+        </p>
         <EducationActivity />
-      </section>
+      </Reveal>
 
-      <section className={styles.block} aria-labelledby="check">
-        <h2 id="check">학습자 검증 체크리스트</h2>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>학습자 검증 체크리스트</h2>
         <ul className={styles.check}>
           {checklist.map((item) => (
             <li key={item}>
@@ -160,18 +169,18 @@ export default function EducationPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Reveal>
 
-      <section className={styles.block}>
-        <h2>문의</h2>
-        <p>
+      <Reveal as="section" className={styles.block}>
+        <h2 className={styles.h2}>문의</h2>
+        <p className={styles.body}>
           교육 제안·맞춤 설계가 필요하면{" "}
           <a href={`mailto:${site.email}`}>{site.email}</a>로 연락해 주세요.
         </p>
         <Link className="btn" href="/about">
           소개·연락
         </Link>
-      </section>
+      </Reveal>
     </div>
   );
 }
