@@ -45,8 +45,7 @@ export function HeroMotif() {
           priority
           sizes="100vw"
           className={styles.image}
-          unoptimized
-        />
+            />
       </div>
       <div className={styles.veil} />
     </div>

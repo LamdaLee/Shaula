@@ -34,7 +34,6 @@ export function MotifAccent({
       width={size}
       height={size}
       className={className}
-      unoptimized
     />
   );
 }

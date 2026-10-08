@@ -9,9 +9,9 @@ export const site = {
   url: "https://shaula.kr",
   /** Role line — keep honest, sharpen delivery */
   role: "어려운 것을 쉽게 전달해 주는 사람",
-  tagline: "어려운 AI를, 쓸 수 있는 말로.",
+  tagline: "어려운 AI를, 일상과 업무에서 쓸 수 있게.",
   taglineSupport:
-    "교육운영과 웹앱 제작으로, 사람들이 AI를 이해하고 쓰도록 돕습니다.",
+    "교육을 운영하고 웹앱을 만들며, 막연한 필요를 작은 실험으로 바꿉니다.",
   footer: "shaula — 이람다의 AI 리터러시 포트폴리오",
   pausePonder: {
     name: "Pause&Ponder",
@@ -26,8 +26,8 @@ export const site = {
 
 export const nav = [
   { href: "/", label: "홈" },
-  { href: "/case", label: "사례" },
-  { href: "/try", label: "써보기" },
+  { href: "/case", label: "앱 제작 사례" },
+  { href: "/try", label: "업무 체험" },
   { href: "/education", label: "교육" },
   { href: "/about", label: "소개" },
 ] as const;

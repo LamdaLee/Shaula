@@ -235,3 +235,7 @@
   padding: 0.1rem 0.35rem;
   border-radius: 3px;
 }
+
+.shot figure { margin: 0; }
+.shot summary { padding: .75rem; color: var(--violet); }
+.split { grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }

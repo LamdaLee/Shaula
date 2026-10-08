@@ -45,7 +45,7 @@ export const EXAMPLE_ANSWERS: WorkToolAnswers = {
   delegate: "담당자와 기한이 있는 할 일 초안 정리",
   checks: ["fact", "missing"],
   checkOther: "",
-  nextAction: "원문과 대조한 뒤 공유한다",
+  nextAction: "짧은 회의 메모 한 건으로 시험하고 원문과 대조하기",
 };
 
 export const INPUT_LABELS: Record<InputKind, string> = {
@@ -93,15 +93,39 @@ export function checksLabel(a: WorkToolAnswers): string {
 
 export function buildResultCard(a: WorkToolAnswers): string {
   return [
-    "내 업무의 AI 활용 실험",
-    "",
-    `나는 ${a.scene.trim()}할 때 어려움을 겪는다.`,
-    `${inputLabel(a)}을(를) 입력해 ${outputLabel(a)}의 초안을 받아보고 싶다.`,
-    `AI에는 ${a.delegate.trim()}을(를) 맡기고, 나는 ${checksLabel(a)}을(를) 확인한다.`,
-    `먼저 ${a.nextAction.trim()}으로 작게 시험한다.`,
-    "",
-    "— 이 카드는 입력한 내용을 정리한 것입니다. AI가 생성한 업무 조언이 아닙니다.",
+    `작업 장면: ${a.scene.trim()}`,
+    `입력 자료: ${inputLabel(a)}`,
+    `원하는 결과: ${outputLabel(a)}`,
+    `AI에 맡길 일: ${a.delegate.trim()}`,
+    `내가 확인할 것: ${checksLabel(a)}`,
+    `첫 실험: ${a.nextAction.trim()}`,
   ].join("\n");
+}
+
+export function buildPrompt(a: WorkToolAnswers): string {
+  return [
+    `작업 상황: ${a.scene.trim()}`,
+    `입력 자료: ${inputLabel(a)}`,
+    `원하는 결과: ${outputLabel(a)}`,
+    "제공한 자료를 바탕으로 위 조건에 맞는 초안을 만들어 주세요.",
+    `요청 범위: ${a.delegate.trim()}`,
+    "자료에 없는 사실을 추가하지 말고, 불명확한 내용은 ‘확인 필요’로 표시해 주세요.",
+    `검토 항목: ${checksLabel(a)}. 원문에서 확인할 부분도 함께 알려 주세요.`,
+    "",
+    "[민감한 정보를 제거한 자료를 여기에 넣으세요]",
+  ].join("\n");
+}
+
+/** Only restore the known form fields; storage can be stale or edited. */
+export function isWorkToolAnswers(value: unknown): value is WorkToolAnswers {
+  if (!value || typeof value !== "object") return false;
+  const a = value as Record<string, unknown>;
+  const texts = ["scene", "inputOther", "outputOther", "delegate", "checkOther", "nextAction"];
+  return texts.every((key) => typeof a[key] === "string") &&
+    ["", ...Object.keys(INPUT_LABELS)].includes(String(a.inputKind)) &&
+    ["", ...Object.keys(OUTPUT_LABELS)].includes(String(a.outputKind)) &&
+    Array.isArray(a.checks) &&
+    a.checks.every((item) => typeof item === "string" && Object.hasOwn(CHECK_LABELS, item));
 }
 
 export function validateStep(

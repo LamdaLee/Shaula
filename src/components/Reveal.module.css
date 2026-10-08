@@ -1,5 +1,5 @@
 .reveal {
-  opacity: 0;
+  opacity: 1;
   will-change: opacity, transform, filter;
   transition:
     opacity 700ms var(--ease),
@@ -8,20 +8,24 @@
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.rise {
+.pending {
+  opacity: 0;
+}
+
+.pending.rise {
   transform: translate3d(0, 1.25rem, 0);
 }
 
-.scale {
+.pending.scale {
   transform: translate3d(0, 0.5rem, 0) scale(0.96);
 }
 
-.blur {
+.pending.blur {
   transform: translate3d(0, 0.75rem, 0);
   filter: blur(6px);
 }
 
-.in {
+.reveal.in {
   opacity: 1;
   transform: none;
   filter: none;

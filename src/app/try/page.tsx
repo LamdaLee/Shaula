@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { EXAMPLE_ANSWERS, buildResultCard } from "@/lib/work-tool";
 import { Reveal } from "@/components/Reveal";
 import { WorkToolForm } from "@/components/WorkToolForm";
 import styles from "./try.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/try" },
   title: "업무 활용 지점 찾기",
   description:
     "막연한 AI 활용 욕구를 입력·출력·검증·다음 행동이 있는 실험 카드로 정리합니다. AI API 없음.",
@@ -14,7 +16,7 @@ export default function TryPage() {
     <div className="shell">
       <header className="page-header">
         <Reveal tone="scale">
-          <p className="section__eyebrow">AI 직접 써보기</p>
+          <p className="section__eyebrow">내 업무에 AI 적용해 보기</p>
           <h1 className="page-title">
             내 업무의
             <br />
@@ -26,7 +28,7 @@ export default function TryPage() {
             작은 실험으로.
           </p>
           <p className="page-lead">
-            입력·출력·검증·다음 행동까지 적어 실험 카드로 만듭니다.
+            6개 질문으로 입력 자료·원하는 결과·검증 기준을 정리합니다. 완성한 계획을 요청문으로 바꿔 직접 시험해 보세요.
           </p>
           <aside className={`memo ${styles.memo}`} aria-label="학습 관점">
             <p className={styles.memoLine}>
@@ -41,11 +43,15 @@ export default function TryPage() {
             </p>
           </aside>
           <p className={styles.disclaimer} role="note">
-            AI가 직무를 평가하지 않습니다. 당신이 적은 답을 정리한 ‘실험
-            카드’만 만듭니다. (AI API·직무 적성 판정 없음)
+            이 체험은 답변을 계획과 요청문으로 정리하는 도구입니다. 실제 AI와의 대화는 사용하는 AI 서비스에서 진행합니다.
           </p>
         </Reveal>
       </header>
+
+      <details className="memo">
+        <summary>먼저 완성 카드 예시 보기</summary>
+        <pre className={styles.template}>{buildResultCard(EXAMPLE_ANSWERS)}</pre>
+      </details>
 
       <noscript>
         <div className={styles.noscript}>
@@ -59,12 +65,12 @@ export default function TryPage() {
             <li>무엇을 직접 확인하나요?</li>
             <li>결과로 무엇을 하나요?</li>
           </ol>
-          <pre className={styles.template}>{`내 업무의 AI 활용 실험
-
-나는 ______할 때 어려움을 겪는다.
-______을 입력해 ______의 초안을 받아보고 싶다.
-AI에는 ______을 맡기고, 나는 ______을 확인한다.
-먼저 ______으로 작게 시험한다.`}</pre>
+          <pre className={styles.template}>{`작업 장면: ______
+입력 자료: ______
+원하는 결과: ______
+AI에 맡길 일: ______
+내가 확인할 것: ______
+첫 실험: ______`}</pre>
         </div>
       </noscript>
 

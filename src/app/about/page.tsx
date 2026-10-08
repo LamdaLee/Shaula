@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { ContactEmail } from "@/components/ContactEmail";
 import { site } from "@/lib/site";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "소개·연락",
   description: `${site.person}과 Shaula 이야기, 연락처 ${site.email}`,
 };
@@ -58,16 +60,14 @@ export default function AboutPage() {
       <Reveal as="section" className={styles.block}>
         <h2 className={styles.h2}>다양한 경험</h2>
         <p className={styles.body}>
-          문예창작, 공간 디자인, 마케팅 콘텐츠, 제과제빵, IT 교육 — 설명과 문제
-          해결 방식의 근거가 됩니다.
+          문예창작과 마케팅에서는 전달할 내용을 구성했고, 제과제빵과 IT 교육에서는 익숙한 경험으로 새로운 개념을 설명하는 연결을 찾았습니다. 지금은 교육운영에서 발견한 필요를 웹앱과 교육 기획으로 구체화합니다.
         </p>
         <aside className="memo">
           <p className={styles.memoHand}>
             “재료 = 변수 / 레시피 = 알고리즘”
           </p>
           <p className={styles.memoSub}>
-            베이킹 비유로 프로그래밍을 풀어 본 자료가 있습니다. 공개용 이미지:{" "}
-            <span className="badge">확인 필요</span>
+            익숙한 재료와 레시피의 관계로 변수와 알고리즘을 설명한 사례입니다.
           </p>
         </aside>
       </Reveal>
@@ -77,12 +77,7 @@ export default function AboutPage() {
         <p className={styles.body}>
           교육 제안·협업·질문 — 공개 이메일로 보내 주세요.
         </p>
-        <p className={styles.mail}>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-        </p>
-        <p className={styles.note}>
-          추가 채널(폼·SNS 등): <span className="badge">확인 필요</span>
-        </p>
+        <ContactEmail />
         <div className="cta-row">
           <Link className="btn" href="/case">
             대표 앱 보기

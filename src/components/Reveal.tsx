@@ -36,6 +36,7 @@ export function Reveal({
       return;
     }
 
+    if (!("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -45,6 +46,11 @@ export function Reveal({
       },
       { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
     );
+    // Content is visible by default, including without JS. Animate only after
+    // an observer is available, and avoid hiding sections taller than a screen.
+    if (el.getBoundingClientRect().top > window.innerHeight && el.offsetHeight < window.innerHeight) {
+      el.classList.add(styles.pending);
+    }
     io.observe(el);
     return () => io.disconnect();
   }, []);

@@ -9,7 +9,7 @@
   --lilac: #a78bfa;
   --violet: #6d5ce7;
   --sky: #e4ecff;
-  --sky-ink: #4f8ef7;
+  --sky-ink: #285dc1;
   --star: #4f8ef7;
   --memo: #efe9ff;
   --memo-edge: #c4b5fd;
@@ -25,9 +25,8 @@
   --accent: var(--violet);
   --accent-soft: color-mix(in srgb, var(--lilac) 35%, white);
 
-  /* Pretendard first (CDN); IBM Plex Sans KR as next/font fallback */
-  --font-sans: "Pretendard Variable", Pretendard, var(--font-sans-face),
-    "IBM Plex Sans KR", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Locally hosted Pretendard; no external font requests. */
+  --font-sans: var(--font-sans-face), "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: var(--font-sans);
   --font-body: var(--font-sans);
   --font-hand: var(--font-sans);
@@ -408,3 +407,12 @@ p {
     padding: var(--space-6) 0;
   }
 }
+
+input, textarea, button { font: inherit; }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--violet); }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+pre { overflow-wrap: anywhere; }
+
+section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
+summary { cursor: pointer; font-weight: 600; padding: .75rem 0; }
+details > summary + * { margin-top: .75rem; }

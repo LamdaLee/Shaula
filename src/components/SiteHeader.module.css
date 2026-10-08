@@ -235,3 +235,6 @@
     height: 1.9rem;
   }
 }
+
+.link[aria-current="page"], .mobileLink[aria-current="page"] { color: var(--violet); background: color-mix(in srgb, var(--lilac) 20%, white); }
+.cta { white-space: normal; text-align: center; max-width: 13rem; }

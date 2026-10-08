@@ -31,7 +31,6 @@ export function BrandIcon({
       width={size}
       height={size}
       className={className}
-      unoptimized
     />
   );
 }
