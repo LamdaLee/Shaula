@@ -11,8 +11,8 @@ export function SiteHeader() {
           <Image
             src="/brand/logo-shaula.png"
             alt=""
-            width={168}
-            height={56}
+            width={148}
+            height={48}
             className={styles.logo}
             priority
             unoptimized

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./HeroMotif.module.css";
 
-/** Full-bleed chaos→clarity illustration with soft scroll parallax. */
+/** Wide airy path+waves banner — full path & stars visible, open sky for type. */
 export function HeroMotif() {
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -20,8 +20,8 @@ export function HeroMotif() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const y = window.scrollY;
-        const shift = Math.min(y * 0.14, 64);
-        const drift = Math.min(y * 0.06, 28);
+        const shift = Math.min(y * 0.1, 48);
+        const drift = Math.min(y * 0.04, 18);
         root.style.setProperty("--parallax-y", `${shift}px`);
         root.style.setProperty("--parallax-x", `${drift}px`);
       });
@@ -39,7 +39,7 @@ export function HeroMotif() {
     <div className={styles.root} ref={rootRef} aria-hidden="true">
       <div className={styles.art}>
         <Image
-          src="/brand/hero-chaos-to-clarity.png"
+          src="/brand/banner-path-waves.png"
           alt=""
           fill
           priority

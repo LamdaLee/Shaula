@@ -25,7 +25,7 @@
   --accent: var(--violet);
   --accent-soft: color-mix(in srgb, var(--lilac) 35%, white);
 
-  --font-display: var(--font-display-face), "Black Han Sans", "Noto Sans KR", sans-serif;
+  --font-display: var(--font-display-face), "Jua", "Noto Sans KR", sans-serif;
   --font-body: var(--font-body-face), "IBM Plex Sans KR", "Noto Sans KR", sans-serif;
   --font-hand: var(--font-hand-face), "Gaegu", "Nanum Pen Script", cursive;
 
@@ -134,8 +134,8 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  line-height: 1.18;
-  letter-spacing: -0.03em;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
   font-weight: 400;
   color: var(--ink);
   text-wrap: balance;
@@ -291,9 +291,10 @@ p {
 }
 
 .section__title {
-  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  font-size: clamp(1.75rem, 3.8vw, 2.65rem);
   margin: 0 0 0.85rem;
   max-width: 18ch;
+  line-height: 1.3;
 }
 
 .section__lead {
@@ -307,9 +308,9 @@ p {
 
 .section__punch {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.3rem, 2.8vw, 1.75rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0 0 0.75rem;
   max-width: 22ch;
@@ -320,6 +321,14 @@ p {
   width: 3rem;
   height: 3rem;
   margin-bottom: 0.85rem;
+}
+
+.section__motif {
+  display: block;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 0.9rem;
+  object-fit: contain;
 }
 
 .memo {
@@ -349,9 +358,10 @@ p {
 }
 
 .page-title {
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-size: clamp(2rem, 5.2vw, 3.25rem);
   margin: 0 0 0.85rem;
   max-width: 14ch;
+  line-height: 1.28;
 }
 
 .page-lead {

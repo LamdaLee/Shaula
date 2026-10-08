@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BrandIcon } from "@/components/BrandIcon";
 import { HeroMotif } from "@/components/HeroMotif";
+import { MotifAccent } from "@/components/MotifAccent";
 import { Reveal } from "@/components/Reveal";
 import { StickyMoment } from "@/components/StickyMoment";
 import { site } from "@/lib/site";
@@ -45,8 +46,8 @@ export default function HomePage() {
         <div className="shell">
           <Reveal>
             <div className={styles.cueRow}>
-              <BrandIcon name="app" size={48} className="section__icon" alt="" />
-              <BrandIcon name="pause" size={48} className="section__icon" alt="" />
+              <MotifAccent name="cards" size={52} className="section__motif" />
+              <MotifAccent name="sparkles" size={52} className="section__motif" />
             </div>
             <p className="section__eyebrow">대표 앱</p>
             <div className={styles.feature}>
@@ -89,8 +90,8 @@ export default function HomePage() {
         <div className="shell">
           <Reveal>
             <div className={styles.cueRow}>
-              <BrandIcon name="path" size={48} className="section__icon" alt="" />
-              <BrandIcon name="verify" size={48} className="section__icon" alt="" />
+              <MotifAccent name="path" size={52} className="section__motif" />
+              <MotifAccent name="loop" size={52} className="section__motif" />
             </div>
             <p className="section__eyebrow">업무 활용 체험</p>
             <h2 id="try-title" className="section__title">
@@ -113,7 +114,7 @@ export default function HomePage() {
       <section className={`section ${styles.eduBand}`} aria-labelledby="edu-title">
         <div className="shell">
           <Reveal>
-            <BrandIcon name="learn" size={48} className="section__icon" alt="" />
+            <MotifAccent name="orbit" size={56} className="section__motif" />
             <p className="section__eyebrow">교육 프로그램</p>
             <span className="badge badge--mint">교육 제안 · 프로그램 설계</span>
             <h2 id="edu-title" className="section__title">
@@ -134,6 +135,7 @@ export default function HomePage() {
       <section className="section" aria-labelledby="bg-title">
         <div className="shell">
           <Reveal>
+            <MotifAccent name="network" size={52} className="section__motif" />
             <p className="section__eyebrow">교육운영과 배경</p>
             <h2 id="bg-title" className="section__title">
               경험이
@@ -177,8 +179,16 @@ export default function HomePage() {
         <div className="shell">
           <Reveal tone="scale">
             <div className={`memo ${styles.contactBox}`}>
+              <Image
+                src="/brand/frame-soft-waves.png"
+                alt=""
+                fill
+                className={styles.contactFrame}
+                unoptimized
+                aria-hidden="true"
+              />
               <div>
-                <BrandIcon name="talk" size={44} className={styles.contactIcon} alt="" />
+                <MotifAccent name="star" size={48} className={styles.contactIcon} />
                 <p className="section__eyebrow" style={{ marginBottom: 0 }}>
                   연락
                 </p>

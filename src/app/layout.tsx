@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Black_Han_Sans, Gaegu, IBM_Plex_Sans_KR } from "next/font/google";
+import { Gaegu, IBM_Plex_Sans_KR, Jua } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Black_Han_Sans({
+/** Soft rounded Korean display — warmer than Black Han Sans. */
+const display = Jua({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-display-face",

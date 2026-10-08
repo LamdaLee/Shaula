@@ -31,8 +31,10 @@
 .logo {
   display: block;
   width: auto;
-  height: 2.15rem;
+  /* Keep wordmark readable without crowding the airy header */
+  height: 1.95rem;
   object-fit: contain;
+  object-position: left center;
 }
 
 .nav {
@@ -73,7 +75,7 @@
 
 @media (max-width: 520px) {
   .logo {
-    height: 1.85rem;
+    height: 1.7rem;
   }
 
   .link {
