@@ -1,5 +1,7 @@
 export const site = {
   name: "Shaula",
+  /** Lowercase wordmark as shown in official logo */
+  wordmark: "shaula",
   person: "이람다",
   personEn: "Lee Lamda",
   email: "lamda@shaula.kr",
@@ -10,7 +12,7 @@ export const site = {
   tagline: "어려운 AI를, 쓸 수 있는 말로.",
   taglineSupport:
     "교육운영과 웹앱 제작으로, 사람들이 AI를 이해하고 쓰도록 돕습니다.",
-  footer: "Shaula — 이람다의 AI 리터러시 포트폴리오",
+  footer: "shaula — 이람다의 AI 리터러시 포트폴리오",
   pausePonder: {
     name: "Pause&Ponder",
     nameKo: "포즈앤폰더",

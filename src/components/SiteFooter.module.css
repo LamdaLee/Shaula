@@ -1,8 +1,8 @@
 .footer {
   margin-top: auto;
   padding: 2.25rem 0 2.5rem;
-  border-top: 1px dashed var(--line);
-  background: color-mix(in srgb, white 40%, var(--paper));
+  border-top: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+  background: color-mix(in srgb, white 45%, var(--paper));
 }
 
 .inner {
@@ -30,7 +30,7 @@
 .meta a {
   text-decoration: none;
   font-weight: 600;
-  color: var(--sky-ink);
+  color: var(--violet);
   transition: color 160ms var(--ease);
 }
 

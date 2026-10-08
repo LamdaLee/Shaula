@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandIcon } from "@/components/BrandIcon";
 import { HeroMotif } from "@/components/HeroMotif";
 import { Reveal } from "@/components/Reveal";
 import { StickyMoment } from "@/components/StickyMoment";
@@ -12,38 +13,23 @@ export default function HomePage() {
         <HeroMotif />
         <div className={`shell ${styles.heroInner}`}>
           <Reveal tone="scale">
-            <p className={styles.heroEyebrow}>{site.role}</p>
-          </Reveal>
-          <Reveal tone="scale" delayMs={60}>
             <h1 id="hero-brand" className={styles.heroBrand}>
-              {site.name}
+              {site.wordmark}
             </h1>
           </Reveal>
-          <Reveal delayMs={120}>
-            <p className={styles.heroPerson}>
-              {site.person}
-              <span className={styles.heroDot} aria-hidden="true">
-                ·
-              </span>
-              {site.personEn}
-            </p>
-          </Reveal>
-          <Reveal tone="blur" delayMs={160}>
+          <Reveal tone="blur" delayMs={80}>
             <p className={styles.heroLead}>{site.tagline}</p>
           </Reveal>
-          <Reveal delayMs={220}>
+          <Reveal delayMs={140}>
             <p className={styles.heroSupport}>{site.taglineSupport}</p>
           </Reveal>
-          <Reveal delayMs={280}>
+          <Reveal delayMs={220}>
             <div className="cta-row">
               <Link className="btn" href="/case">
                 대표 앱 보기
               </Link>
               <Link className="btn btn--ghost" href="/try">
                 내 업무에 AI 적용해 보기
-              </Link>
-              <Link className="btn btn--memo" href="/education">
-                교육 제안 보기
               </Link>
             </div>
           </Reveal>
@@ -58,6 +44,10 @@ export default function HomePage() {
       <section className={`section ${styles.band}`} aria-labelledby="pp-title">
         <div className="shell">
           <Reveal>
+            <div className={styles.cueRow}>
+              <BrandIcon name="app" size={48} className="section__icon" alt="" />
+              <BrandIcon name="pause" size={48} className="section__icon" alt="" />
+            </div>
             <p className="section__eyebrow">대표 앱</p>
             <div className={styles.feature}>
               <div className={styles.featureCopy}>
@@ -98,6 +88,10 @@ export default function HomePage() {
       <section className="section" aria-labelledby="try-title">
         <div className="shell">
           <Reveal>
+            <div className={styles.cueRow}>
+              <BrandIcon name="path" size={48} className="section__icon" alt="" />
+              <BrandIcon name="verify" size={48} className="section__icon" alt="" />
+            </div>
             <p className="section__eyebrow">업무 활용 체험</p>
             <h2 id="try-title" className="section__title">
               막힌 지점을
@@ -119,6 +113,7 @@ export default function HomePage() {
       <section className={`section ${styles.eduBand}`} aria-labelledby="edu-title">
         <div className="shell">
           <Reveal>
+            <BrandIcon name="learn" size={48} className="section__icon" alt="" />
             <p className="section__eyebrow">교육 프로그램</p>
             <span className="badge badge--mint">교육 제안 · 프로그램 설계</span>
             <h2 id="edu-title" className="section__title">
@@ -183,6 +178,7 @@ export default function HomePage() {
           <Reveal tone="scale">
             <div className={`memo ${styles.contactBox}`}>
               <div>
+                <BrandIcon name="talk" size={44} className={styles.contactIcon} alt="" />
                 <p className="section__eyebrow" style={{ marginBottom: 0 }}>
                   연락
                 </p>
