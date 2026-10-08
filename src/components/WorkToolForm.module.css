@@ -192,3 +192,5 @@
 .card h3 { margin-top: 1.25rem; font-size: 1.1rem; }
 .card hr { border: 0; border-top: 1px solid var(--line); margin-block: 1.5rem; }
 .cardBody { overflow-wrap: anywhere; }
+
+.educationCta{margin:2rem 0;padding:1.3rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--sky)}.educationCta h3{margin:.5rem 0}.educationCta p{font-size:.95rem}

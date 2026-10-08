@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ProjectCards } from "@/components/ProjectCards";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 import styles from "./case.module.css";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/case" },
-  title: "Pause & Ponder 사례",
-  description: site.pausePonder.summary,
+  title: "직접 만든 두 개의 웹앱",
+  description:
+    "Pause & Ponder와 별이음: 일상의 문제를 정의하고 AI와 구현한 웹앱의 기획과 구조",
 };
 
 const shots = [
@@ -46,16 +48,29 @@ export default function CasePage() {
   return (
     <div className="shell">
       <header className="page-header">
+        <p className="section__eyebrow">CASE STUDIES · 필요에서 출발한 설계</p>
+        <h1 className="page-title">
+          문제를 작게 나누고,
+          <br />
+          작동하는 도구로.
+        </h1>
+        <p className="page-lead">
+          화려한 결과보다 왜 이 기능이 필요한지, 어디까지 AI에 맡겼는지, 무엇을
+          직접 확인했는지를 보여줍니다.
+        </p>
+        <ProjectCards />
+      </header>
+      <header id="pause-ponder" className="page-header">
         <Reveal tone="scale">
           <div className={styles.badges}>
             <span className="badge">직접 만든 웹앱</span>
             <span className="badge badge--sky">선택적 AI API</span>
             <span className="badge badge--mint">Next.js + Supabase</span>
           </div>
-          <h1 className="page-title">
+          <h2 className="page-title">
             {site.pausePonder.name}
             <span className={styles.titleKo}> {site.pausePonder.nameKo}</span>
-          </h1>
+          </h2>
           <p className={styles.punch}>{site.pausePonder.punch}</p>
           <p className="page-lead">
             이람다가 만든 개인 보조 웹앱입니다. 생각·할 일·사고 싶은 것을 한곳에
@@ -115,8 +130,7 @@ export default function CasePage() {
           불편에서 출발했습니다.
         </p>
         <p className={styles.body}>
-          예:{" "}
-          <code className={styles.inlineCode}>21000원 우산 구매</code>와{" "}
+          예: <code className={styles.inlineCode}>21000원 우산 구매</code>와{" "}
           <code className={styles.inlineCode}>사고 싶다</code> /{" "}
           <code className={styles.inlineCode}>구매?</code>를 구분하고, 카드
           대금과 물품 구매가 이중으로 합산되지 않게 합니다.
@@ -157,7 +171,6 @@ export default function CasePage() {
                 <td>선택적 AI 분류</td>
                 <td>메모의 분류 후보 제안. AI 실패 시 규칙 기반 처리</td>
               </tr>
-
             </tbody>
           </table>
         </div>
@@ -169,24 +182,33 @@ export default function CasePage() {
           캡처
         </h2>
         <p className={styles.note}>
-          실제 앱 화면입니다. 개인 계정 정보는 제외했습니다. 각 항목을 펼쳐 기능을 살펴보세요.
+          실제 앱 화면입니다. 개인 계정 정보는 제외했습니다. 각 항목을 펼쳐
+          기능을 살펴보세요.
         </p>
         <div className={styles.shots}>
           {shots.map((shot, i) => (
             <details key={shot.src} open={i === 0} className={styles.shot}>
               <summary>{shot.title} · 화면 보기</summary>
               <figure>
-              <a href={shot.src} target="_blank" rel="noopener noreferrer" aria-label={`${shot.title} 화면 크게 보기`}>
-              <Image
-                src={shot.src}
-                alt={shot.alt}
-                width={1144}
-                height={941}
-                className={styles.shotImg}
-                sizes="(max-width: 800px) 100vw, 720px"
-              />
-              </a>
-              <figcaption><strong>{shot.title}</strong> — {shot.caption} 화면을 누르면 크게 볼 수 있습니다.</figcaption>
+                <a
+                  href={shot.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${shot.title} 화면 크게 보기`}
+                >
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    width={1144}
+                    height={941}
+                    className={styles.shotImg}
+                    sizes="(max-width: 800px) 100vw, 720px"
+                  />
+                </a>
+                <figcaption>
+                  <strong>{shot.title}</strong> — {shot.caption} 화면을 누르면
+                  크게 볼 수 있습니다.
+                </figcaption>
               </figure>
             </details>
           ))}
@@ -215,17 +237,17 @@ export default function CasePage() {
           <div className={styles.splitCard}>
             <h3>AI가 제안</h3>
             <p>
-              돈·생각·감정·일·숨고르기 분류와 원화 금액/거래 유형{" "}
-              <em>후보</em>
+              돈·생각·감정·일·숨고르기 분류와 원화 금액/거래 유형 <em>후보</em>
             </p>
           </div>
           <div className={styles.splitCard}>
             <h3>사람이 확인</h3>
-            <p>
-              분류와 금액 후보를 원문과 비교하고, 기록·보류·수정을 결정
-            </p>
+            <p>분류와 금액 후보를 원문과 비교하고, 기록·보류·수정을 결정</p>
           </div>
-          <div className={styles.splitCard}><h3>코드가 계산</h3><p>확정한 기록을 바탕으로 합계·납부일·기간을 계산합니다.</p></div>
+          <div className={styles.splitCard}>
+            <h3>코드가 계산</h3>
+            <p>확정한 기록을 바탕으로 합계·납부일·기간을 계산합니다.</p>
+          </div>
         </div>
       </Reveal>
 
@@ -265,12 +287,22 @@ export default function CasePage() {
           <span className={styles.step}>07</span>
           검증과 개선
         </h2>
-        <p className={styles.body}>구매 의사를 적은 메모와 실제 지출을 구분하고, 물품 구매와 카드 대금이 중복 합산되지 않도록 설계했습니다. AI 분류 후보는 사용자가 확인하도록 합니다.</p>
-        <details><summary>개발 현황과 앞으로 확인할 항목</summary><ul className={styles.bullets}>
-          <li>루틴·Android 기능의 운영 반영과 실기기 알림은 추가 확인이 필요합니다.</li>
-          <li>외부 사용자 피드백과 사용 성과는 아직 검증하지 않았습니다.</li>
-          <li>다음 개선 방향은 감정 타임라인, 보류함, AI 분류입니다.</li>
-        </ul></details>
+        <p className={styles.body}>
+          구매 의사를 적은 메모와 실제 지출을 구분하고, 물품 구매와 카드 대금이
+          중복 합산되지 않도록 설계했습니다. AI 분류 후보는 사용자가 확인하도록
+          합니다.
+        </p>
+        <details>
+          <summary>개발 현황과 앞으로 확인할 항목</summary>
+          <ul className={styles.bullets}>
+            <li>
+              루틴·Android 기능의 운영 반영과 실기기 알림은 추가 확인이
+              필요합니다.
+            </li>
+            <li>외부 사용자 피드백과 사용 성과는 아직 검증하지 않았습니다.</li>
+            <li>다음 개선 방향은 감정 타임라인, 보류함, AI 분류입니다.</li>
+          </ul>
+        </details>
       </Reveal>
 
       <Reveal as="section" className={styles.block}>

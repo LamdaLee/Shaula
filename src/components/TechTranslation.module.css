@@ -1,0 +1,104 @@
+.grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.8);
+  min-width: 0;
+}
+.code {
+  color: var(--sky-ink);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.4rem;
+}
+.technical {
+  color: var(--violet);
+  font-weight: 650;
+}
+.card p {
+  font-size: 0.96rem;
+}
+.flow {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 1.25rem 0;
+}
+.flow li {
+  padding: 0.4rem 0.6rem;
+  background: var(--paper-deep);
+  border-radius: 0.5rem;
+  font-size: 0.82rem;
+}
+.flow li:not(:last-child)::after {
+  content: " →";
+  color: var(--violet);
+}
+.card details {
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+  font-size: 0.9rem;
+}
+.card details p {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+.loop {
+  padding: 2rem 0 0.5rem;
+}
+.pipeline {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.pipeline li {
+  position: relative;
+  padding: 1.3rem;
+  border-left: 3px solid var(--violet);
+  background: var(--paper-deep);
+  border-radius: 0 1rem 1rem 0;
+  min-width: 0;
+}
+.pipeline li:nth-child(even) {
+  border-color: var(--sky-ink);
+  background: var(--sky);
+}
+.pipeline span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.pipeline h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+.pipeline p {
+  font-size: 0.92rem;
+  margin: 0;
+}
+.loopNote {
+  max-width: 48rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pipeline {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
