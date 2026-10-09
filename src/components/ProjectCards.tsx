@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ThoughtPreview } from "./ThoughtPreview";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import styles from "./ProjectCards.module.css";
@@ -50,19 +51,13 @@ export function ProjectCards() {
         </div>
       </article>
       <article className={styles.card}>
-        <div className={styles.image}>
-          <Image
-            src="/images/byeolieum/studio.png"
-            alt="별이음에서 생각 카드를 연결하고 아이디어를 구체화하는 작업 화면"
-            width={1440}
-            height={1000}
-            sizes="(max-width:700px) 100vw, 540px"
-          />
+        <div className={`${styles.image} ${styles.conceptImage}`}>
+          <ThoughtPreview />
         </div>
         <div className={styles.copy}>
           <span className="badge badge--sky">배포된 프로토타입 · 개선 중</span>
           <h3>
-            별이음 <span className={styles.en}>ByeolIeum</span>
+            모아틀 <span className={styles.en}>Moateul</span>
           </h3>
           <p className={styles.punch}>흩어진 생각을 이어, 나만의 그림으로.</p>
           <dl>
@@ -83,16 +78,9 @@ export function ProjectCards() {
             </dd>
           </dl>
           <div className="cta-row">
-            <Link className="btn btn--ghost" href="/case#byeolieum">
-              별이음 소개 읽기
+            <Link className="btn btn--ghost" href="/case#moateul">
+              모아틀 소개 읽기
             </Link>
-            <a
-              href={site.byeolieum.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              프로토타입 열기 ↗
-            </a>
           </div>
         </div>
       </article>

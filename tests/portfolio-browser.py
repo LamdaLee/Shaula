@@ -9,11 +9,13 @@ with sync_playwright() as p:
  for width in [320,390,1440]:
   ctx=browser.new_context(viewport={'width':width,'height':1000},reduced_motion='reduce')
   page=ctx.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-  for path in ['/','/case','/case/byeolieum','/education','/about','/try']:
+  for path in ['/','/case','/case/moateul','/education','/about','/try']:
    assert page.goto(BASE+path).status==200
    expect(page.locator('h1')).to_have_count(1)
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,path,'overflow')
    assert page.locator('main').inner_text().strip()
+   assert '별이음' not in page.locator('body').inner_text()
+   assert page.locator('a[href*="byeolieum.com"], a[href*="LamdaLee/Byeolieum"], img[src*="byeolieum"]').count()==0
    if path=='/':
     expect(page.get_by_role('heading',name='어려운 기술을 쉽게 풀고, 필요한 도구를 직접 만듭니다.')).to_be_visible()
     expect(page.get_by_role('heading',name='AI의 초안에 사람의 판단을 더합니다.')).to_be_visible()
@@ -24,9 +26,9 @@ with sync_playwright() as p:
     page.evaluate('window.scrollTo(0, 0)')
     page.screenshot(path=str(OUT/f'home-{width}.png'),full_page=True)
    if path=='/case':
-    page.get_by_role('link',name='별이음 소개 읽기',exact=True).click()
-    expect(page.locator('#byeolieum')).to_be_visible()
-    expect(page).to_have_url(BASE+'/case#byeolieum')
+    page.get_by_role('link',name='모아틀 소개 읽기',exact=True).click()
+    expect(page.locator('#moateul')).to_be_visible()
+    expect(page).to_have_url(BASE+'/case#moateul')
     expect(page.get_by_role('heading',name='하루 한 줄 배움 기록',exact=True)).to_be_visible()
    if path=='/about':
     expect(page.get_by_role('heading',name='기술이 일상의 전제가 될 때')).to_be_visible()
@@ -36,8 +38,9 @@ with sync_playwright() as p:
      assert ctx.request.get(BASE+f'/worksheets/{file}.png').status==200
      response=ctx.request.get(BASE+f'/worksheets/{file}.pdf');assert response.status==200 and response.body().startswith(b'%PDF-')
     page.screenshot(path=str(OUT/f'education-{width}.png'),full_page=True)
-   if path=='/case/byeolieum':
+   if path=='/case/moateul':
     expect(page.get_by_text('배포된 프로토타입 · 개선 중',exact=True)).to_be_visible()
+    assert '모아틀' in page.title() and '별이음' not in page.title()
   page.get_by_role('button',name='예시로 채워 보기',exact=True).click()
   for i in range(5):page.get_by_role('button',name='다음',exact=True).click()
   page.get_by_role('button',name='실험 카드 만들기',exact=True).click()

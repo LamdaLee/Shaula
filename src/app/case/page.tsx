@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/case" },
   title: "직접 만든 두 개의 웹앱",
   description:
-    "Pause & Ponder와 별이음: 일상의 문제를 정의하고 AI와 구현한 웹앱의 기획과 구조",
+    "Pause & Ponder와 모아틀: 일상의 문제를 정의하고 AI와 구현한 웹앱의 기획과 구조",
 };
 
 const shots = [
@@ -59,12 +59,12 @@ export default function CasePage() {
         </p>
         <ProjectCards />
       </header>
-      <section id="byeolieum" className={styles.block} aria-labelledby="byeolieum-title">
-        <p className="section__eyebrow">별이음 · 생각에서 아이디어로</p>
-        <h2 id="byeolieum-title" className={styles.h2}>흩어진 생각이, 하나의 아이디어가 되기까지</h2>
-        <p className={styles.body}>떠오른 생각을 바로 정리하거나 평가하기는 어렵습니다. 일단 카드로 남겨두고, 서로 관련 있는 생각을 연결하며 다음에 해볼 일을 찾고 싶었습니다. 별 하나를 이어 별자리를 만들듯, 생각 사이의 맥락을 찾는 도구입니다.</p>
+      <section id="moateul" className={styles.block} aria-labelledby="moateul-title">
+        <p className="section__eyebrow">모아틀 · 생각에서 아이디어로</p>
+        <h2 id="moateul-title" className={styles.h2}>흩어진 생각이, 하나의 아이디어가 되기까지</h2>
+        <p className={styles.body}>떠오른 생각을 바로 정리하거나 평가하기는 어렵습니다. 일단 카드로 남겨두고, 서로 관련 있는 생각을 연결하며 다음에 해볼 일을 찾고 싶었습니다. 생각을 모아, 실행할 수 있는 구상의 틀을 만드는 도구입니다.</p>
         <p className={styles.note}>아래는 카드에서 아이디어와 제작 요청문으로 이어지는 설명용 예시입니다.</p>
-        <ol className={styles.ideaJourney} aria-label="별이음 사용 흐름 예시">
+        <ol className={styles.ideaJourney} aria-label="모아틀 사용 흐름 예시">
           <li>
             <span className={styles.journeyLabel}>01 · 생각을 남기기</span>
             <h3>아직 정리되지 않은 세 조각</h3>
@@ -87,8 +87,7 @@ export default function CasePage() {
         </ol>
         <p className={styles.body}>AI의 제안이 곧 정답은 아닙니다. 연결 근거가 내 생각과 맞는지 고르고, 만들어볼 기능과 직접 확인할 기준을 정합니다.</p>
         <div className="cta-row">
-          <Link className="btn btn--ghost" href="/case/byeolieum">배경과 제작 기록 더 읽기</Link>
-          <a href={site.byeolieum.demo} target="_blank" rel="noopener noreferrer">원할 때 앱에서 해보기 ↗</a>
+          <Link className="btn btn--ghost" href="/case/moateul">배경과 제작 기록 더 읽기</Link>
         </div>
       </section>
       <header id="pause-ponder" className="page-header">

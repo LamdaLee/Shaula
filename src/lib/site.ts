@@ -13,10 +13,8 @@ export const site = {
   taglineSupport:
     "교육 운영을 하며, AI와 함께 웹앱을 만드는 이람다입니다. 익숙한 경험으로 기술을 설명하고, 직접 만들면서 배운 것을 작은 콘텐츠와 실습으로 나누고 싶습니다.",
   footer: "shaula — 이람다의 생각과 만드는 일",
-  byeolieum: {
-    name: "별이음",
-    demo: "https://byeolieum.com",
-    github: "https://github.com/LamdaLee/Byeolieum",
+  moateul: {
+    name: "모아틀",
     summary:
       "흩어진 생각을 연결하고, 아이디어를 제작 프롬프트와 작은 실험으로 이어가는 웹앱",
   },

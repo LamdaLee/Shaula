@@ -72,3 +72,8 @@
 .copy > :global(.badge) {
   align-self: flex-start;
 }
+
+.conceptImage {
+  aspect-ratio: auto;
+  min-height: 15rem;
+}
