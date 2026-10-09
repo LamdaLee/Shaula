@@ -75,7 +75,7 @@ export default function EducationPage() {
           <section id="webapp" className={styles.programCard}>
             <span className="badge badge--sky">웹앱 구성안 · 16회 × 50분</span>
             <h3>생각모음부터 배포까지</h3>
-            <p>Pause &amp; Ponder와 별이음 제작에서 배운 입력·연결·저장 구조를 바탕으로, 나만의 작은 웹앱에 기능을 붙이고 시험해봅니다. 터미널·API·DB·배포 개념도 필요한 순간에 연결합니다.</p>
+            <p>Pause &amp; Ponder와 모아틀 제작에서 배운 입력·연결·저장 구조를 바탕으로, 나만의 작은 웹앱에 기능을 붙이고 시험해봅니다. 터미널·API·DB·배포 개념도 필요한 순간에 연결합니다.</p>
             <details><summary>16회 작은 과제 살펴보기</summary><ol className={styles.sessions}>
               {webapp.map((item, i) => <li className={styles.session} key={item}><span className={styles.sessionNum}>{i + 1}</span>{item}</li>)}
             </ol></details>

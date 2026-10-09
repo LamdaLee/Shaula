@@ -1,0 +1,31 @@
+.preview {
+  height: 100%;
+  min-width: 0;
+  padding: clamp(.8rem, 3vw, 1.5rem);
+  background: linear-gradient(135deg, var(--paper-deep), var(--sky));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .65rem;
+}
+.label { margin: 0; font-size: .85rem; font-weight: 650; color: var(--sky-ink); }
+.cards { display: flex; flex-wrap: wrap; gap: .5rem; }
+.cards span {
+  padding: .55rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: .65rem;
+  background: var(--paper);
+  font-size: clamp(.7rem, 1.5vw, .9rem);
+  color: var(--ink-soft);
+}
+.connection { margin: 0; font-size: .8rem; color: var(--violet); }
+.idea {
+  display: grid;
+  gap: .35rem;
+  padding: .75rem;
+  border-radius: .65rem;
+  background: white;
+  border: 1px solid var(--line);
+}
+.idea strong { font-size: 1rem; color: var(--sky-ink); }
+.idea span { font-size: .75rem; color: var(--ink-soft); }
